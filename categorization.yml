@@ -1,0 +1,663 @@
+processes-and-threads:
+  categories:
+    lifecycle:
+      syscalls:
+        - name: fork
+          desc: create a child process
+        - name: vfork
+          desc: create a child process and block parent
+        - name: clone
+          desc: create a child process or thread
+        - name: clone3
+          desc: create a child process or thread
+        - name: posix_spawn
+          desc: spawn a process
+        - name: execve
+          desc: execute a program
+        - name: execveat
+          desc: execute a program (relative to a directory file)
+        - name: wait4
+          desc: wait for process to change state
+        - name: waitid
+          desc: wait for process to change state
+        - name: exit
+          desc: terminate the calling process
+      categories:
+        threads:
+          name: "Threads"
+          syscalls:
+            - name: tkill
+              desc: send a signal to a thread in a thread group
+            - name: tgkill
+              desc: send a signal to a thread
+            - name: thrkill
+              desc: send signal to a thread in the same process
+            - name: exit_group
+              desc: exit all threads in a process's thread group
+            - name: set_tid_address
+              desc: set pointer to thread ID
+            - name: __get_tcb
+              desc: get the address of the thread control block of the current thread
+            - name: __set_tcb
+              desc: set the address of the thread control block of the current thread
+            - name: __tfork
+              desc: create a new kernel thread in the current process
+            - name: __thrsleep
+              desc: userspace thread sleep
+            - name: __thrwakeup
+              desc: userspace thread wakeup
+    file-system-relationships:
+      syscalls:
+        - name: getcwd
+          desc: get current working directory
+        - name: __getcwd
+          desc: get current working directory
+        - name: chdir
+          desc: set current working directory (by path)
+        - name: fchdir
+          desc: set current working directory (by file descriptor)
+        - name: chroot
+          desc: change root directory
+        - name: pivot_root
+          desc: change the root mount
+        - name: setfsuid
+          desc: set user identity used for filesystem checks
+        - name: setfsgid
+          desc: set group identity used for filesystem checks
+    credentials:
+      categories:
+        uid:
+          name: "UID"
+          syscalls:
+            - name: getuid
+            - name: setuid
+            - name: geteuid
+            - name: seteuid
+            - name: getresuid
+            - name: setresuid
+            - name: setreuid
+        gid:
+          name: "GID"
+          syscalls:
+            - name: getgid
+            - name: setgid
+            - name: getegid
+            - name: setegid
+            - name: getresgid
+            - name: setresgid
+            - name: setregid
+            - name: getgroups
+            - name: setgroups
+        process-groups:
+          syscalls:
+            - name: getpgid
+            - name: setpgid
+            - name: getpgrp
+    signals:
+      syscalls:
+        - name: kill
+        - name: sigaction
+        - name: rt_sigaction
+        - name: sigaltstack
+        - name: sigpending
+        - name: rt_sigpending
+        - name: sigprocmask
+        - name: rt_sigprocmask
+        - name: sigreturn
+        - name: rt_sigreturn
+        - name: sigsuspend
+        - name: rt_sigsuspend
+        - name: rt_sigtimedwait
+        - name: rt_sigqueueinfo
+        - name: rt_tgsigqueueinfo
+        - name: __thrsigdivert
+    virtual-memory:
+      syscalls:
+        - name: brk
+        - name: break
+        - name: kbind
+        - name: minherit
+        - name: mlock
+        - name: mlockall
+        - name: mmap
+        - name: remap_file_pages
+        - name: mprotect
+        - name: mimmutable
+        - name: msync
+        - name: munlock
+        - name: munlockall
+        - name: munmap
+        - name: madvise
+        - name: process_madvise
+        - name: mquery
+        - name: mincore
+        - name: mlock2
+        - name: mmap2
+        - name: mbind
+        - name: mremap
+        - name: pkey_mprotect
+        - name: pkey_alloc
+        - name: pkey_free
+      protection:
+        syscalls:
+          - name: pkey_alloc
+          - name: pkey_free
+          - name: pkey_mprotect
+    timers:
+      syscalls:
+        - name: getitimer
+        - name: setitimer
+        - name: timer_create
+        - name: timer_delete
+        - name: timerfd_gettime
+        - name: timerfd_settime
+        - name: timer_getoverrun
+        - name: timer_gettime
+        - name: timer_settime
+    sessions:
+      syscalls:
+        - name: getlogin_r
+        - name: getsid
+        - name: setsid
+        - name: setlogin
+    metadata:
+      categories:
+        process:
+          syscalls:
+            - name: getpid
+            - name: getppid
+        thread:
+          syscalls:
+            - name: getthrid
+            - name: gettid
+            - name: getthrname
+            - name: setthrname
+        other:
+          syscalls:
+            - name: issetugid
+            - name: personality
+    cpu-and-numa:
+      name: "CPU and NUMA"
+      syscalls:
+        - name: getcpu
+        - name: get_mempolicy
+        - name: set_mempolicy
+        - name: migrate_pages
+        - name: move_pages
+    scheduling:
+      syscalls:
+        - name: getpriority
+        - name: setpriority
+        - name: sched_yield
+        - name: sched_getparam
+        - name: sched_setparam
+        - name: sched_get_priority_min
+        - name: sched_get_priority_max
+        - name: sched_getscheduler
+        - name: sched_setscheduler
+        - name: sched_rr_get_interval
+        - name: sched_getattr
+        - name: sched_setattr
+        - name: sched_getaffinity
+        - name: sched_setaffinity
+        - name: ioprio_get
+        - name: ioprio_set
+    resource-limits-and-utilization:
+      syscalls:
+        - name: getrlimit
+        - name: setrlimit
+        - name: prlimit64
+        - name: getrusage
+        - name: times
+    terminal:
+      syscalls:
+        - name: vhangup
+    network-routing:
+      syscalls:
+        - name: getrtable
+        - name: setrtable
+    sleeping:
+      syscalls:
+        - name: nanosleep
+        - name: clock_nanosleep
+    locking-and-synchronization:
+      syscalls:
+        - name: futex
+        - name: futex_waitv
+        - name: membarrier
+        - name: get_robust_list
+        - name: set_robust_list
+    operations-on-other-processes:
+      categories:
+        tracing:
+          syscalls:
+            - name: ktrace
+            - name: ptrace
+        virtual-memory:
+          syscalls:
+            - name: process_vm_readv
+            - name: process_vm_writev
+        other:
+          syscalls:
+            - name: prctl
+            - name: kcmp
+file-descriptors-and-handles:
+  categories:
+    open-or-create-a-file:
+      syscalls:
+        - name: open
+        - name: openat
+        - name: openat2
+        - name: open_by_handle_at
+        - name: name_to_handle_at
+        - name: getfh
+        - name: fhopen
+    create-a-pipe:
+      syscalls:
+        - name: pipe
+        - name: pipe2
+    open-or-create-something-else:
+      syscalls:
+        - name: eventfd2
+        - name: memfd_create
+        - name: memfd_secret
+        - name: timerfd_create
+        - name: userfaultfd
+        - name: signalfd4
+        - name: pidfd_open
+    duplicate-a-file-descriptor:
+      syscalls:
+        - name: dup
+        - name: dup2
+        - name: dup3
+    modify-file-descriptor-metadata:
+      syscalls:
+        - name: fcntl
+        - name: getdtablecount
+        - name: ioctl
+        - name: lseek
+        - name: llseek
+    provide-file-descriptor-hints:
+      syscalls:
+        - name: fadvise64
+        - name: fadvise64_64
+        - name: readahead
+    io:
+      name: "I/O on a file descriptor"
+      categories:
+        read:
+          syscalls:
+            - name: read
+            - name: readv
+            - name: pread
+            - name: preadv
+            - name: preadv2
+        write:
+          syscalls:
+            - name: write
+            - name: writev
+            - name: pwrite
+            - name: pwritev
+            - name: pwritev2
+        zero-copy:
+          name: "Zero-copy"
+          syscalls:
+            - name: copy_file_range
+            - name: sendfile
+            - name: splice
+            - name: tee
+            - name: fallocate
+            - name: vmsplice
+    pidfd:
+      name: "pidfd (Linux)"
+      syscalls:
+        - name: pidfd_getfd
+        - name: pidfd_send_signal
+    close-a-file-descriptor:
+      syscalls:
+        - name: close
+          desc: delete a descriptor
+        - name: closefrom
+          desc: delete many descriptors
+        - name: close_range
+file-system:
+  categories:
+    create-an-object:
+      syscalls:
+        - name: mkdir
+        - name: mkfifo
+        - name: mknod
+        - name: link
+        - name: symlink
+        - name: symlinkat
+        - name: linkat
+        - name: mkdirat
+        - name: mkfifoat
+        - name: mknodat
+    modify-an-objects:
+      syscalls:
+        - name: rename
+        - name: renameat
+        - name: renameat2
+        - name: truncate
+        - name: ftruncate
+    change-object-permissions:
+      syscalls:
+        - name: access
+        - name: faccessat
+        - name: faccessat2
+        - name: chflags
+        - name: chmod
+        - name: chown
+        - name: lchown
+        - name: umask
+        - name: chflagsat
+        - name: fchmodat
+        - name: fchmodat2
+        - name: fchownat
+        - name: fchflags
+        - name: fchmod
+        - name: fchown
+    retrieve-object-stats:
+      syscalls:
+        - name: lstat
+        - name: fhstat
+        - name: fhstatfs
+        - name: readlink
+        - name: __realpath
+        - name: stat
+        - name: statx
+        - name: fstatat
+        - name: statfs
+        - name: newfstatat
+        - name: readlinkat
+        - name: utimes
+        - name: lutimes
+    remove-object:
+      syscalls:
+        - name: unlink
+        - name: unlinkat
+        - name: rmdir
+        - name: utimensat
+        - name: flock
+        - name: fstat
+        - name: futimens
+        - name: futimes
+        - name: getdents
+    change-mount-points:
+      syscalls:
+        - name: mount
+        - name: getfsstat
+        - name: fstatfs
+        - name: unmount
+        - name: umount2
+    change-global-file-system-state:
+      syscalls:
+        - name: sync
+        - name: fsync
+        - name: fdatasync
+        - name: sync_file_range
+        - name: sync_file_range2
+        - name: syncfs
+    change-object-extended-attributes:
+      syscalls:
+        - name: fgetxattr
+        - name: flistxattr
+        - name: fremovexattr
+        - name: fsetxattr
+        - name: getxattr
+        - name: lgetxattr
+        - name: listxattr
+        - name: llistxattr
+        - name: lremovexattr
+        - name: lsetxattr
+        - name: removexattr
+        - name: setxattr
+    watch-objects:
+      syscalls:
+        - name: inotify_add_watch
+        - name: inotify_init1
+        - name: inotify_rm_watch
+        - name: fanotify_init
+        - name: fanotify_mark
+    modify-path-and-fd-limits:
+      name: "Modify path and FD limits"
+      syscalls:
+        - name: pathconf
+        - name: fpathconf
+network:
+  categories:
+    berkeley-sockets:
+      categories:
+        create:
+          syscalls:
+            - name: socket
+            - name: socketpair
+        socket-lifecycle:
+          syscalls:
+            - name: accept
+            - name: accept4
+            - name: bind
+            - name: connect
+            - name: listen
+        socket-metadata:
+          syscalls:
+            - name: getpeername
+            - name: getsockname
+            - name: getsockopt
+            - name: setsockopt
+        io:
+          name: "I/O on a socket"
+          syscalls:
+            - name: recvfrom
+            - name: sendto
+            - name: recvmsg
+            - name: sendmsg
+            - name: recvmmsg
+            - name: sendmmsg
+    nfs:
+      name: "NFS"
+      syscalls:
+        - name: nfssvc
+        - name: nfsservctl
+polling-multiplexing-and-async-io:
+  name: "Polling, multiplexing and asynchronous I/O"
+  categories:
+    polling-and-multiplexing:
+      syscalls:
+        - name: kevent
+        - name: kqueue
+        - name: kqueue1
+        - name: poll
+        - name: ppoll
+        - name: pselect
+        - name: select
+        - name: epoll_create1
+        - name: epoll_ctl
+        - name: epoll_pwait
+        - name: epoll_pwait2
+        - name: pselect6
+    posix:
+      name: "POSIX asynchronous I/O"
+      syscalls:
+        - name: aio_read
+        - name: aio_write
+        - name: aio_return
+        - name: aio_suspend
+        - name: aio_cancel
+        - name: aio_error
+        - name: aio_waitcomplete
+        - name: aio_fsync
+        - name: aio_mlock
+    linux-async-io:
+      name: "Asynchronous I/O (Linux)"
+      syscalls:
+        - name: io_cancel
+        - name: io_destroy
+        - name: io_getevents
+        - name: io_pgetevents
+        - name: io_setup
+        - name: io_submit
+        - name: io_uring_enter
+        - name: io_uring_register
+        - name: io_uring_setup
+security:
+  categories:
+    sandboxing:
+      syscalls:
+        - name: msyscall
+          desc: permit syscalls from a region of pages
+        - name: pinsyscall
+          desc: specify the call stub for a specific system call
+        - name: pledge
+          desc: force the current process into a restricted-service operating mode
+        - name: revoke
+          desc: revoke file access
+        - name: seccomp
+          desc: operate on Secure Computing state of the process
+        - name: unveil
+          desc: unveil parts of a restricted filesystem view
+    freebsd-jails:
+      name: "Jails (FreeBSD)"
+      syscalls:
+        - name: jail
+          desc: sets up a jail and locks the current process in it
+        - name: jail_attach
+          desc: attaches the current process to an existing jail
+        - name: jail_get
+          desc: retrieves jail parameters
+        - name: jail_set
+          desc: creates a new jail or modifies an existing one
+        - name: jail_remove
+          desc: removes the jail
+    linux-capabilities:
+      name: "Capabilities (Linux)"
+      syscalls:
+        - name: capget
+        - name: capset
+    linux-namespaces:
+      name: "Namespaces (Linux)"
+      syscalls:
+        - name: setns
+          desc: reassociate thread with a namespace
+        - name: unshare
+          desc: disassociate parts of the process execution context
+    linux-landlock:
+      name: "Landlock (Linux)"
+      syscalls:
+        - name: landlock_create_ruleset
+        - name: landlock_add_rule
+        - name: landlock_restrict_self
+    entropy-and-random:
+      syscalls:
+        - name: getentropy
+        - name: getrandom
+    ipsec-keys:
+      name: "IPSec keys"
+      syscalls:
+        - name: add_key
+        - name: keyctl
+        - name: request_key
+interprocess-communication:
+  categories:
+    system-v-semaphores:
+      name: "System V semaphores"
+      syscalls:
+        - name: semctl
+        - name: semtimedop
+        - name: __semctl
+        - name: semget
+        - name: semop
+    message-queues:
+      name: "POSIX message queues"
+      syscalls:
+        - name: msgctl
+        - name: msgget
+        - name: msgrcv
+        - name: msgsnd
+        - name: mq_getsetattr
+        - name: mq_notify
+        - name: mq_open
+        - name: mq_timedreceive
+        - name: mq_timedsend
+        - name: mq_unlink
+    shared-memory:
+      syscalls:
+        - name: shmat
+        - name: shmctl
+        - name: shmdt
+        - name: shmget
+system:
+  categories:
+    general:
+      syscalls:
+        - name: reboot
+        - name: shutdown
+        - name: sysctl
+        - name: setdomainname
+        - name: sethostname
+        - name: uname
+        - name: sysinfo
+    kernel:
+      categories:
+        kernel-module-management:
+          name: "Kernel module management (Linux)"
+          syscalls:
+            - name: finit_module
+            - name: init_module
+            - name: delete_module
+        kexec:
+          name: "kexec (Linux)"
+          syscalls:
+            - name: kexec_file_load
+            - name: kexec_load
+        freebsd-dynamic-kernel-linker-facility:
+          name: "Dynamic kernel linker facility (FreeBSD)"
+          syscalls:
+            - name: kldsym
+            - name: kldload
+            - name: kldunload
+            - name: kldunloadf
+            - name: kldfind
+            - name: kldnext
+            - name: kldstat
+            - name: kldfirstmod
+    system-log:
+      syscalls:
+        - name: sendsyslog
+        - name: utrace
+        - name: syslog
+    swap:
+      syscalls:
+        - name: swapctl
+        - name: swapoff
+        - name: swapon
+    clock-and-time-functions:
+      syscalls:
+        - name: gettimeofday
+        - name: settimeofday
+        - name: clock_gettime
+        - name: clock_settime
+        - name: clock_getres
+        - name: clock_adjtime
+        - name: adjtimex
+        - name: adjfreq
+        - name: adjtime
+    quotas-and-accounting:
+      syscalls:
+        - name: acct
+        - name: quotactl
+    performance-profiling-and-ebpf:
+      name: "Performance, profiling and and eBPF"
+      syscalls:
+        - name: bpf
+        - name: perf_event_open
+        - name: profil
+meta-system-calls:
+  syscalls:
+    - name: sysarch
+    - name: __syscall
+    - name: syscall
+    - name: arch_specific_syscall
+    - name: restart_syscall
+    - name: rseq

@@ -1,0 +1,15 @@
+[package]
+name = "awesome-system-calls"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ureq = "2"
+cmacros = "0"
+minijinja = "1"
+serde = { version = "1", features = ["derive"] }
+serde_yaml = "0"
+indexmap = { version = "2", features = ["serde"] }
+Inflector = "0"
+regex = "1.9.5"
+clap = { version = "4", features = ["derive"] }

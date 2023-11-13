@@ -1,0 +1,57 @@
+{{ auto_generated_disclaimer }}
+
+# Awesome System Calls
+
+A categorized list of system calls used by popular Unix-like operating systems.
+
+Since the system calls are the primary way of how the OS processes interact with the outside world, this list can be very useful when evaluating what is possible or not on a given operating system.
+
+There are various system call dumps on the internet and attempts to classify and group system calls in various research papers, but it's very hard to find both in the same place. And even if you do, chances are they will be wildly outdated and will only target a single OS.
+
+The *awesome* word is used deliberately as an alias for "collection of", to help people Googling this project.
+
+## System call statistics
+
+{%- for os_info in os_infos %}
+
+* {{ os_info.name }} ({{ os_info.emoji }}) — {{ os_info.count }}
+
+{%- endfor %}
+
+## Table of contents
+
+{%- for category in categories recursive %}
+
+{{ "  " | repeat(loop.depth0) }}* [{{ category.name }}](#{{ category.slug }})
+
+{%- if category.categories -%}
+{{ loop(category.categories) }}
+{%- endif -%}
+
+{%- endfor %}
+
+## System calls
+
+{%- for category in categories recursive %}
+
+{{ "#" | repeat(loop.depth0 + 3) }} {{ category.name }}
+
+{%- if category.desc %}
+{{ category.desc }}
+{%- endif %}
+
+{%- if category.syscalls %}
+
+| Name | OS | Description |
+|------|----|-------------|
+{%- for syscall in category.syscalls %}
+| `{{ syscall.name }}` | {% if syscall.emojis %}{{ syscall.emojis }}{% endif %} | {% if syscall.desc %}{{ syscall.desc }}{% endif %} |
+{%- endfor %}
+
+{%- endif %}
+
+{%- if category.categories -%}
+{{ loop(category.categories) }}
+{%- endif -%}
+
+{%- endfor %}

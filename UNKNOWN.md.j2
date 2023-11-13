@@ -1,0 +1,9 @@
+{{ auto_generated_disclaimer }}
+
+# Uncategorized {{ os_info.name }} System Calls
+
+We don't know anything about {{ syscalls | length }} {{ os_info.name }} ({{ os_info.emoji }}) system calls. Help us categorize these bad boys:
+
+{% for syscall in syscalls -%}
+* {{ syscall }}
+{% endfor -%}
