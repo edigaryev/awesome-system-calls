@@ -11,15 +11,20 @@ pub struct Syscall {
 
 impl Syscall {
     pub(crate) fn transform(&self, oses: &[Box<dyn OS>]) -> HashMap<&'static str, Value> {
-        let emojis: Vec<String> = oses
+        let per_os_infos: Vec<HashMap<&str, String>> = oses
             .iter()
             .filter(|os| os.syscalls().contains(&self.name))
-            .map(|os| os.emoji())
+            .map(|os| {
+                HashMap::from([
+                    ("os_emoji", os.emoji()),
+                    ("manpage_link", os.manpage_link(&self.name)),
+                ])
+            })
             .collect();
 
         let mut result = HashMap::from([
             ("name", Value::from(self.name.to_string())),
-            ("emojis", Value::from(emojis.join(", "))),
+            ("per_os_infos", Value::from_serializable(&per_os_infos)),
         ]);
 
         if let Some(desc) = &self.desc {

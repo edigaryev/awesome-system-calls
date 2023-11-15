@@ -45,7 +45,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 | Name | OS | Description |
 |------|----|-------------|
 {%- for syscall in category.syscalls %}
-| `{{ syscall.name }}` | {% if syscall.emojis %}{{ syscall.emojis }}{% endif %} | {% if syscall.desc %}{{ syscall.desc }}{% endif %} |
+| `{{ syscall.name }}` | {% for per_os_info in syscall.per_os_infos %}[{{ per_os_info.os_emoji }}]({{ per_os_info.manpage_link }}){% if not loop.last %}, {% endif %}{% endfor %} | {% if syscall.desc %}{{ syscall.desc }}{% endif %} |
 {%- endfor %}
 
 {%- endif %}
