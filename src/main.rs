@@ -45,12 +45,13 @@ fn generate() -> Result<()> {
     env.set_keep_trailing_newline(true);
 
     // Load operating systems
-    let oses: Vec<Box<dyn OS>> = vec![
+    let mut oses: Vec<Box<dyn OS>> = vec![
         Box::new(os::Darwin::new()?),
         Box::new(os::FreeBSD::new()?),
         Box::new(os::Linux::new()?),
         Box::new(os::OpenBSD::new()?),
     ];
+    oses.sort_by_key(|os| os.syscalls().len());
 
     // Render categorized system calls for all operating systems
     categorization.render_known_syscalls(&env, &oses, "README.md.j2", "README.md")?;
