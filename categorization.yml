@@ -31,7 +31,7 @@ processes-and-threads:
             - name: tgkill
               desc: send a signal to a thread in a thread group
             - name: thrkill
-              desc: send signal to a thread in the same process
+              desc: send signal to a thread
             - name: exit_group
               desc: exit all threads in a process's thread group
             - name: set_tid_address
