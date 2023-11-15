@@ -27,9 +27,9 @@ processes-and-threads:
           name: "Threads"
           syscalls:
             - name: tkill
-              desc: send a signal to a thread in a thread group
-            - name: tgkill
               desc: send a signal to a thread
+            - name: tgkill
+              desc: send a signal to a thread in a thread group
             - name: thrkill
               desc: send signal to a thread in the same process
             - name: exit_group

@@ -217,8 +217,8 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
 | Name | OS | Description |
 |------|----|-------------|
-| `tkill` | [🐧](https://man7.org/linux/man-pages/man2/tkill.2.html) | send a signal to a thread in a thread group |
-| `tgkill` | [🐧](https://man7.org/linux/man-pages/man2/tgkill.2.html) | send a signal to a thread |
+| `tkill` | [🐧](https://man7.org/linux/man-pages/man2/tkill.2.html) | send a signal to a thread |
+| `tgkill` | [🐧](https://man7.org/linux/man-pages/man2/tgkill.2.html) | send a signal to a thread in a thread group |
 | `thrkill` | [🐡](https://man.openbsd.org/thrkill.2) | send signal to a thread in the same process |
 | `exit_group` | [🐧](https://man7.org/linux/man-pages/man2/exit_group.2.html) | exit all threads in a process's thread group |
 | `set_tid_address` | [🐧](https://man7.org/linux/man-pages/man2/set_tid_address.2.html) | set pointer to thread ID |
