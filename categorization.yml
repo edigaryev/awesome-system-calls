@@ -53,9 +53,9 @@ processes-and-threads:
         - name: __getcwd
           desc: get current working directory
         - name: chdir
-          desc: set current working directory (by path)
+          desc: set current working directory
         - name: fchdir
-          desc: set current working directory (by file descriptor)
+          desc: set current working directory (referenced by a file descriptor)
         - name: chroot
           desc: change root directory
         - name: pivot_root
