@@ -59,7 +59,7 @@ processes-and-threads:
         - name: chroot
           desc: change root directory
         - name: pivot_root
-          desc: change the root mount
+          desc: change root mount
         - name: setfsuid
           desc: set user identity used for filesystem checks
         - name: setfsgid
