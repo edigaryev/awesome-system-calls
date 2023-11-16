@@ -2,12 +2,13 @@
 
 # Uncategorized Linux System Calls
 
-We don't know anything about 49 Linux (🐧) system calls. Help us categorize these bad boys:
+We don't know anything about 50 Linux (🐧) system calls. Help us categorize these bad boys:
 
 * lookup_dcookie
 * getdents64
 * pread64
 * pwrite64
+* rseq
 * clock_gettime64
 * clock_settime64
 * clock_adjtime64

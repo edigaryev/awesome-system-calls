@@ -15,7 +15,7 @@ processes-and-threads:
         - name: execve
           desc: execute a program
         - name: execveat
-          desc: execute a program (relative to a directory file)
+          desc: execute a program (relative to a directory file descriptor)
         - name: wait4
           desc: wait for process to change state
         - name: waitid
@@ -31,11 +31,11 @@ processes-and-threads:
             - name: tgkill
               desc: send a signal to a thread in a thread group
             - name: thrkill
-              desc: send signal to a thread
+              desc: send a signal to a thread
             - name: exit_group
               desc: exit all threads in a process's thread group
             - name: set_tid_address
-              desc: set pointer to thread ID
+              desc: set pointer to a thread ID
             - name: __get_tcb
               desc: get the address of the thread control block of the current thread
             - name: __set_tcb
@@ -60,6 +60,8 @@ processes-and-threads:
           desc: change root directory
         - name: pivot_root
           desc: change root mount
+        - name: umask
+          desc: set file creation mode mask
         - name: setfsuid
           desc: set user identity used for filesystem checks
         - name: setfsgid
@@ -70,361 +72,606 @@ processes-and-threads:
           name: "UID"
           syscalls:
             - name: getuid
+              desc: get real user ID
             - name: setuid
+              desc: set real user ID
             - name: geteuid
+              desc: get effective user ID
             - name: seteuid
+              desc: set effective user ID
             - name: getresuid
+              desc: get real, effective and saved user IDs
             - name: setresuid
+              desc: set real, effective and saved user IDs
             - name: setreuid
+              desc: set real and effective user IDs
         gid:
           name: "GID"
           syscalls:
             - name: getgid
+              desc: get real group ID
             - name: setgid
+              desc: set real group ID
             - name: getegid
+              desc: get effective group ID
             - name: setegid
+              desc: set effective group ID
             - name: getresgid
+              desc: get real, effective and saved group IDs
             - name: setresgid
+              desc: set real, effective and saved group IDs
             - name: setregid
+              desc: set real and effective group IDs
             - name: getgroups
+              desc: get supplementary group IDs
             - name: setgroups
-        process-groups:
+              desc: set supplementary group IDs
+        process-groups-and-sessions:
           syscalls:
-            - name: getpgid
-            - name: setpgid
             - name: getpgrp
+              desc: get process group
+            - name: getpgid
+              desc: get process group (referenced by a process ID)
+            - name: setpgid
+              desc: set process group (referenced by a process ID)
+            - name: getsid
+              desc: get process session ID
+            - name: setsid
+              desc: set process sesssion ID
+            - name: getlogin_r
+              desc: get login name of the user associated with current session
+            - name: setlogin
+              desc: set login name of the user associated with current session
     signals:
       syscalls:
         - name: kill
+          desc: send signal to a process
         - name: sigaction
+          desc: examine and change a signal action
         - name: rt_sigaction
+          desc: examine and change a signal action
         - name: sigaltstack
+          desc: manipulate signal stack context
         - name: sigpending
+          desc: examine pending signals
         - name: rt_sigpending
+          desc: examine pending signals
         - name: sigprocmask
+          desc: examine and change blocked signals
         - name: rt_sigprocmask
+          desc: examine and change blocked signals
         - name: sigreturn
+          desc: return from the signal handler
         - name: rt_sigreturn
+          desc: return from the signal handler
         - name: sigsuspend
+          desc: wait for signal
         - name: rt_sigsuspend
+          desc: wait for signal
         - name: rt_sigtimedwait
+          desc: synchronously wait for queued signals
         - name: rt_sigqueueinfo
+          desc: queue a signal and data
         - name: rt_tgsigqueueinfo
+          desc: queue a signal and data
         - name: __thrsigdivert
+          desc: synchronously accept a signal
     virtual-memory:
       syscalls:
         - name: brk
-        - name: break
-        - name: kbind
-        - name: minherit
-        - name: mlock
-        - name: mlockall
+          desc: change data segment size
+        - name: sbrk
+          desc: increase data segment size
         - name: mmap
-        - name: remap_file_pages
-        - name: mprotect
-        - name: mimmutable
-        - name: msync
-        - name: munlock
-        - name: munlockall
-        - name: munmap
-        - name: madvise
-        - name: process_madvise
-        - name: mquery
-        - name: mincore
-        - name: mlock2
+          desc: map files or devices into memory
         - name: mmap2
-        - name: mbind
+          desc: map files or devices into memory
+        - name: mlock
+          desc: lock physical pages in memory
+        - name: mlock2
+          desc: lock physical pages in memory
+        - name: mlockall
+          desc: lock the address space of a process
+        - name: munlock
+          desc: unlock physical pages in memory
+        - name: munlockall
+          desc: unlock the address space of a process
+        - name: mprotect
+          desc: control the protection of pages
+        - name: minherit
+          desc: control the inheritance of pages
+        - name: mimmutable
+          desc: control the immutability of pages
+        - name: msync
+          desc: synchronize a mapped region
+        - name: madvise
+          desc: give advice about use of memory
+        - name: process_madvise
+          desc: give advice about use of memory to a process
+        - name: mquery
+          desc: provide mapping hints to applications
         - name: mremap
-        - name: pkey_mprotect
-        - name: pkey_alloc
-        - name: pkey_free
-      protection:
-        syscalls:
-          - name: pkey_alloc
-          - name: pkey_free
-          - name: pkey_mprotect
+          desc: remap a virtual memory address
+        - name: remap_file_pages
+          desc: create a nonlinear file mapping
+        - name: mincore
+          desc: determine whether pages are resident in memory
+        - name: munmap
+          desc: remove a mapping
+        - name: mbind
+          desc: set memory policy for a memory range
+        - name: kbind
+          desc: update protected memory for lazy-binding
+      categories:
+        protection-keys:
+          name: "Memory Protection Keys (Linux)"
+          syscalls:
+            - name: pkey_alloc
+              desc: allocate a protection key
+            - name: pkey_mprotect
+              desc: control the protection of pages and their protection keys
+            - name: pkey_free
+              desc: free a protection key
     timers:
       syscalls:
         - name: getitimer
+          desc: get value of interval timer
         - name: setitimer
+          desc: set value of interval timer
         - name: timer_create
-        - name: timer_delete
-        - name: timerfd_gettime
-        - name: timerfd_settime
-        - name: timer_getoverrun
+          desc: create a POSIX per-process timer
         - name: timer_gettime
+          desc: fetch state of POSIX per-process timer
         - name: timer_settime
-    sessions:
-      syscalls:
-        - name: getlogin_r
-        - name: getsid
-        - name: setsid
-        - name: setlogin
+          desc: arm/disarm the POSIX per-process timer
+        - name: timer_getoverrun
+          desc: get overrun count for a POSIX per-process timer
+        - name: timer_delete
+          desc: delete a POSIX per-process timer
+        - name: timerfd_gettime
+          desc: fetch state of a timer that notifies via file descriptor
+        - name: timerfd_settime
+          desc: arm/disarm a timer that notifies via file descriptor
     metadata:
       categories:
         process:
           syscalls:
             - name: getpid
+              desc: get process ID
             - name: getppid
+              desc: get process ID of the parent
         thread:
           syscalls:
-            - name: getthrid
             - name: gettid
+              desc: get thread ID
+            - name: getthrid
+              desc: get thread ID
             - name: getthrname
+              desc: get thread name
             - name: setthrname
+              desc: set thread name
         other:
           syscalls:
             - name: issetugid
+              desc: check if current executable is running `setuid` or `setgid`
             - name: personality
+              desc: set the process execution domain
     cpu-and-numa:
       name: "CPU and NUMA"
       syscalls:
         - name: getcpu
+          desc: determine CPU and NUMA node on which the calling thread is running
         - name: get_mempolicy
+          desc: retrieve NUMA memory policy for a thread
         - name: set_mempolicy
-        - name: migrate_pages
+          desc: set default NUMA memory policy for a thread
         - name: move_pages
+          desc:  move individual pages of a process to another node
+        - name: migrate_pages
+          desc: move all pages in a process to another set of nodes
     scheduling:
       syscalls:
         - name: getpriority
+          desc: get process scheduling priority
         - name: setpriority
+          desc: set process scheduling priority
         - name: sched_yield
+          desc: yield the processor
         - name: sched_getparam
+          desc: get scheduling parameters
         - name: sched_setparam
-        - name: sched_get_priority_min
-        - name: sched_get_priority_max
+          desc: set scheduling parameters
         - name: sched_getscheduler
+          desc: get scheduling policy/parameters
         - name: sched_setscheduler
-        - name: sched_rr_get_interval
+          desc: set scheduling policy/parameters
         - name: sched_getattr
+          desc: get scheduling policy and attributes
         - name: sched_setattr
+          desc: set scheduling policy and attributes
+        - name: sched_get_priority_min
+          desc: get static priority range
+        - name: sched_get_priority_max
+          desc: get static priority range
+        - name: sched_rr_get_interval
+          desc: get the SCHED_RR interval (referenced by a process ID)
         - name: sched_getaffinity
+          desc: get thread's CPU affinity mask
         - name: sched_setaffinity
+          desc: set thread's CPU affinity mask
         - name: ioprio_get
+          desc: get I/O scheduling class and and priority
         - name: ioprio_set
+          desc: set I/O scheduling class and and priority
     resource-limits-and-utilization:
       syscalls:
         - name: getrlimit
+          desc: get resource limits
         - name: setrlimit
+          desc: set resource limits
         - name: prlimit64
+          desc: control resource limits (referenced by a process ID)
         - name: getrusage
+          desc: get resource usage
         - name: times
+          desc: get process times
     terminal:
       syscalls:
         - name: vhangup
+          desc: virtually hangup the current terminal
     network-routing:
       syscalls:
         - name: getrtable
+          desc: get default routing table of the current process
         - name: setrtable
+          desc: set default routing table of the current process
     sleeping:
       syscalls:
         - name: nanosleep
+          desc: high-resolution sleep
         - name: clock_nanosleep
+          desc: high-resolution sleep with specifiable clock
     locking-and-synchronization:
       syscalls:
         - name: futex
+          desc: fast userspace locking primitive
         - name: futex_waitv
+          desc: wait on array of futexes
         - name: membarrier
+          desc: issue memory barriers on a set of threads
         - name: get_robust_list
+          desc: get list of robust futexes
         - name: set_robust_list
+          desc: set list of robust futexes
     operations-on-other-processes:
       categories:
         tracing:
           syscalls:
             - name: ktrace
+              desc: configure process tracing
             - name: ptrace
+              desc: configure process tracing
         virtual-memory:
           syscalls:
             - name: process_vm_readv
+              desc: transfer data between process address spaces
             - name: process_vm_writev
+              desc: transfer data between process address spaces
         other:
           syscalls:
             - name: prctl
+              desc: various operations on a process or a thread
             - name: kcmp
+              desc: compare two processes to determine if they share a kernel resource
 file-descriptors-and-handles:
   categories:
     open-or-create-a-file:
       syscalls:
         - name: open
+          desc: open or create a file
         - name: openat
+          desc: open or create a file (relative to a directory file descriptor)
         - name: openat2
-        - name: open_by_handle_at
-        - name: name_to_handle_at
+          desc: open or create a file (relative to a directory file descriptor)
         - name: getfh
+          desc: obtain a handle for a path
+        - name: name_to_handle_at
+          desc: obtain a handle for a path
         - name: fhopen
+          desc: open file via a handle
+        - name: open_by_handle_at
+          desc: open file via a handle
     create-a-pipe:
       syscalls:
         - name: pipe
+          desc: create a pipe
         - name: pipe2
+          desc: create a pipe
     open-or-create-something-else:
       syscalls:
         - name: eventfd2
+          desc: create a file descriptor for event notification
         - name: memfd_create
+          desc: create an anonymous file
         - name: memfd_secret
+          desc: create an anonymous RAM-based file to access secret memory regions
         - name: timerfd_create
+          desc: create a timer that notifies via file descriptor
         - name: userfaultfd
+          desc: create a file descriptor for handling page faults in user space
         - name: signalfd4
+          desc: create a file descriptor for accepting signals
         - name: pidfd_open
+          desc: obtain a file descriptor that refers to a process
     duplicate-a-file-descriptor:
       syscalls:
         - name: dup
+          desc: duplicate an existing file descriptor
         - name: dup2
+          desc: duplicate an existing file descriptor
         - name: dup3
+          desc: duplicate an existing file descriptor
     modify-file-descriptor-metadata:
       syscalls:
         - name: fcntl
-        - name: getdtablecount
+          desc: file control
         - name: ioctl
+          desc: device control
         - name: lseek
+          desc: reposition read/write file offset
         - name: llseek
+          desc: reposition read/write file offset
+        - name: getdtablecount
+          desc: get descriptor table count
     provide-file-descriptor-hints:
       syscalls:
         - name: fadvise64
+          desc: predeclare an access pattern for file data
         - name: fadvise64_64
+          desc: predeclare an access pattern for file data
         - name: readahead
+          desc: initiate file readahead into page cache
     io:
       name: "I/O on a file descriptor"
       categories:
         read:
           syscalls:
             - name: read
+              desc: read from a file descriptor
             - name: readv
+              desc: read from a file descriptor
             - name: pread
+              desc: read from a file descriptor at the specified offset
             - name: preadv
+              desc: read from a file descriptor at the specified offset
             - name: preadv2
+              desc: read from a file descriptor at the specified offset
         write:
           syscalls:
             - name: write
+              desc: write to a file descriptor
             - name: writev
+              desc: write to a file descriptor
             - name: pwrite
+              desc: write to a file descriptor at the specified offset
             - name: pwritev
+              desc: write to a file descriptor at the specified offset
             - name: pwritev2
+              desc: write to a file descriptor at the specified offset
         zero-copy:
           name: "Zero-copy"
           syscalls:
             - name: copy_file_range
+              desc: copy a range of bytes between two file descriptors that refer to files
             - name: sendfile
-            - name: splice
+              desc: move data from source (must support `mmap`-like operations) to a destination file descriptor
             - name: tee
-            - name: fallocate
+              desc: duplicate pipe content
+            - name: splice
+              desc: move data to/from a pipe
             - name: vmsplice
+              desc: splice user pages to/from a pipe
     pidfd:
       name: "pidfd (Linux)"
       syscalls:
-        - name: pidfd_getfd
         - name: pidfd_send_signal
+          desc: send a signal to another process
+        - name: pidfd_getfd
+          desc: obtain a duplicate of another process's file descriptor
     close-a-file-descriptor:
       syscalls:
         - name: close
-          desc: delete a descriptor
+          desc: close a file descriptor
         - name: closefrom
-          desc: delete many descriptors
+          desc: close all file descriptors starting from the specified file descriptor
         - name: close_range
+          desc: close all file descriptors in a given range
 file-system:
   categories:
     create-an-object:
       syscalls:
         - name: mkdir
-        - name: mkfifo
-        - name: mknod
-        - name: link
-        - name: symlink
-        - name: symlinkat
-        - name: linkat
+          desc: create a directory file
         - name: mkdirat
+          desc: create a directory file (relative to a directory file descriptor)
+        - name: mkfifo
+          desc: create a FIFO file
         - name: mkfifoat
+          desc: create a FIFO file (relative to a directory file descriptor)
+        - name: mknod
+          desc: create a special file node
         - name: mknodat
-    modify-an-objects:
+          desc: create a special file node (relative to a directory file descriptor)
+        - name: link
+          desc: create a hard link to file
+        - name: linkat
+          desc: create a hard link to file (relative to a directory file descriptor)
+        - name: symlink
+          desc: create a symbolic link to file
+        - name: symlinkat
+          desc: create a symbolic link to file (relative to a directory file descriptor)
+    modify-an-object:
       syscalls:
         - name: rename
+          desc: change the name or location of a file
         - name: renameat
+          desc: change the name or location of a file (relative to a directory file descriptor)
         - name: renameat2
+          desc: change the name or location of a file (relative to a directory file descriptor)
         - name: truncate
+          desc: truncate or extend a file to a specified length
         - name: ftruncate
+          desc: truncate or extend a file to a specified length (referenced by a file descriptor)
+        - name: fallocate
+          desc: manipulate file space
     change-object-permissions:
       syscalls:
         - name: access
+          desc: check access permissions for a file
         - name: faccessat
+          desc: check access permissions for a file (relative to a directory file descriptor)
         - name: faccessat2
-        - name: chflags
+          desc: check access permissions for a file (relative to a directory file descriptor)
         - name: chmod
-        - name: chown
-        - name: lchown
-        - name: umask
-        - name: chflagsat
-        - name: fchmodat
-        - name: fchmodat2
-        - name: fchownat
-        - name: fchflags
+          desc: change mode of file
         - name: fchmod
+          desc: change mode of file (referenced by a file descriptor)
+        - name: fchmodat
+          desc: change mode of file (relative to a directory file descriptor)
+        - name: fchmodat2
+          desc: change mode of file (relative to a directory file descriptor)
+        - name: chown
+          desc: change owner and group of a file
+        - name: lchown
+          desc: change owner and group of a file
         - name: fchown
+          desc: change owner and group of a file (referenced by a file descriptor)
+        - name: fchownat
+          desc: change owner and group of a file (relative to a directory file descriptor)
+        - name: chflags
+          desc: set file flags
+        - name: fchflags
+          desc: set file flags (referenced by a file descriptor)
+        - name: chflagsat
+          desc: set file flags (relative to a directory file descriptor)
     retrieve-object-stats:
       syscalls:
-        - name: lstat
-        - name: fhstat
-        - name: fhstatfs
         - name: readlink
-        - name: __realpath
-        - name: stat
-        - name: statx
-        - name: fstatat
-        - name: statfs
-        - name: newfstatat
+          desc: read value of a symbolic link
         - name: readlinkat
+          desc: read value of a symbolic link (relative to a directory file descriptor)
+        - name: stat
+          desc: get file status
+        - name: lstat
+          desc: get file status
+        - name: fstat
+        - name: fstatat
+          desc: get file status (relative to a directory file descriptor)
+        - name: statx
+          desc: get file status (relative to a directory file descriptor)
+        - name: fhstat
+          desc: get file status (referenced by a file handle)
+        - name: statfs
+          desc: get file system statistics
+        - name: fstatfs
+          desc: get file system statistics (referenced by a file descriptor)
+        - name: fhstatfs
+          desc: get file system statistics (referenced by a file handle)
+        - name: newfstatat
+          desc: get file system statistics (relative to a directory file descriptor)
         - name: utimes
+          desc: set file access and modification times
         - name: lutimes
+          desc: set file access and modification times
+        - name: utimensat
+          desc: set file access and modification times (relative to a directory file descriptor)
+        - name: futimes
+          desc: set file access and modification times
+        - name: futimens
+          desc: set file access and modification times
+        - name: getdents
+          desc: get directory entries in a filesystem independent format
     remove-object:
       syscalls:
         - name: unlink
+          desc: remove directory entry
         - name: unlinkat
+          desc: remove directory entry (relative to a directory file descriptor)
         - name: rmdir
-        - name: utimensat
+          desc: remove a directory file
+    advisory-locking:
+      syscalls:
         - name: flock
-        - name: fstat
-        - name: futimens
-        - name: futimes
-        - name: getdents
-    change-mount-points:
+          desc: apply or remove an advisory lock on an open file
+    mount-points:
       syscalls:
         - name: mount
+          desc: mount a filesystem
         - name: getfsstat
-        - name: fstatfs
+          desc: get list of all mounted file systems
         - name: unmount
+          desc: dismount a filesystem
         - name: umount2
+          desc: dismount a filesystem
     change-global-file-system-state:
       syscalls:
         - name: sync
+          desc: synchronize disk in-core state with storage device
         - name: fsync
+          desc: synchronize file in-core state with storage device
         - name: fdatasync
+          desc: synchronize file in-core state with storage device
         - name: sync_file_range
+          desc: synchronize file's segment with disk
         - name: sync_file_range2
+          desc: synchronize file's segment with disk
         - name: syncfs
+          desc: commit filesystem caches to disk
     change-object-extended-attributes:
       syscalls:
-        - name: fgetxattr
-        - name: flistxattr
-        - name: fremovexattr
-        - name: fsetxattr
         - name: getxattr
+          desc: retrieve an extended attribute value
         - name: lgetxattr
-        - name: listxattr
-        - name: llistxattr
-        - name: lremovexattr
-        - name: lsetxattr
-        - name: removexattr
+          desc: retrieve an extended attribute value
+        - name: fgetxattr
+          desc: retrieve an extended attribute value (referenced by a file descriptor)
         - name: setxattr
+          desc: set an extended attribute value
+        - name: lsetxattr
+          desc: set an extended attribute value
+        - name: fsetxattr
+          desc: set an extended attribute value (referenced by a file descriptor)
+        - name: listxattr
+          desc: list extended attribute names
+        - name: llistxattr
+          desc: list extended attribute names
+        - name: flistxattr
+          desc: list extended attribute names (referenced by a file descriptor)
+        - name: removexattr
+          desc: remove an extended attribute
+        - name: lremovexattr
+          desc: remove an extended attribute
+        - name: fremovexattr
+          desc: remove an extended attribute (referenced by a file descriptor)
     watch-objects:
       syscalls:
-        - name: inotify_add_watch
         - name: inotify_init1
+          desc: initialize an [`inotify(7)`](https://man7.org/linux/man-pages/man7/inotify.7.html) instance
+        - name: inotify_add_watch
+          desc: add a watch to an initialized `inotify(7)` instance
         - name: inotify_rm_watch
+          desc: remove an existing watch from an `inotify(7)` instance
         - name: fanotify_init
+          desc: create and initialize [`fanotify(7)`](https://man7.org/linux/man-pages/man7/fanotify.7.html) group
         - name: fanotify_mark
-    modify-path-and-fd-limits:
-      name: "Modify path and FD limits"
+          desc: add, remove, or modify an `fanotify(7)` mark on a filesystem object
+    retrieve-filesystem-variables:
+      name: "Retrieve filesystem variables"
       syscalls:
         - name: pathconf
+          desc: get configurable pathname variables
         - name: fpathconf
+          desc: get configurable pathname variables (referenced by a file descriptor)
 network:
   categories:
     berkeley-sockets:
@@ -432,93 +679,148 @@ network:
         create:
           syscalls:
             - name: socket
+              desc: create an endpoint for communication
             - name: socketpair
+              desc: create a pair of connected sockets
         socket-lifecycle:
           syscalls:
-            - name: accept
-            - name: accept4
-            - name: bind
             - name: connect
+              desc: initiate a connection on a socket
+            - name: bind
+              desc: bind a name to a socket
             - name: listen
+              desc: listen for connections on a socket
+            - name: accept
+              desc: accept a connection on a socket
+            - name: accept4
+              desc: accept a connection on a socket
         socket-metadata:
           syscalls:
-            - name: getpeername
             - name: getsockname
+              desc: get local protocol address associated with a socket
+            - name: getpeername
+              desc: get remote protocol address associated with a socket
             - name: getsockopt
+              desc: get socket options
             - name: setsockopt
+              desc: set socket options
         io:
           name: "I/O on a socket"
           syscalls:
             - name: recvfrom
-            - name: sendto
+              desc: receive a message from a socket
             - name: recvmsg
-            - name: sendmsg
+              desc: receive a message from a socket
             - name: recvmmsg
+              desc: receive a message from a socket
+            - name: sendto
+              desc: send a message on a socket
+            - name: sendmsg
+              desc: send a message on a socket
             - name: sendmmsg
+              desc: send a message on a socket
+            - name: shutdown
+              desc: disable sends or receives on a socket
     nfs:
       name: "NFS"
       syscalls:
         - name: nfssvc
+          desc: NFS daemon services
         - name: nfsservctl
+          desc: NFS daemon services
 polling-multiplexing-and-async-io:
   name: "Polling, multiplexing and asynchronous I/O"
   categories:
     polling-and-multiplexing:
       syscalls:
-        - name: kevent
-        - name: kqueue
-        - name: kqueue1
-        - name: poll
-        - name: ppoll
-        - name: pselect
         - name: select
-        - name: epoll_create1
-        - name: epoll_ctl
-        - name: epoll_pwait
-        - name: epoll_pwait2
+          desc: synchronous I/O multiplexing
+        - name: pselect
+          desc: synchronous I/O multiplexing
         - name: pselect6
+          desc: synchronous I/O multiplexing
+        - name: poll
+          desc: synchronous I/O multiplexing
+        - name: ppoll
+          desc: synchronous I/O multiplexing
+        - name: kqueue
+          desc: create a new kernel event queue
+        - name: kqueue1
+          desc: create a new kernel event queue
+        - name: kevent
+          desc: register events with the kernel event queue
+        - name: epoll_create1
+          desc: open an [`epoll(7)`](https://man7.org/linux/man-pages/man7/epoll.7.html) file descriptor
+        - name: epoll_ctl
+          desc: control interface for an `epoll(7)` file descriptor
+        - name: epoll_pwait
+          desc: wait for an I/O event on an `epoll(7)` file descriptor
+        - name: epoll_pwait2
+          desc: wait for an I/O event on an `epoll(7)` file descriptor
     posix:
       name: "POSIX asynchronous I/O"
       syscalls:
         - name: aio_read
+          desc: asynchronous read from a file
         - name: aio_write
-        - name: aio_return
-        - name: aio_suspend
-        - name: aio_cancel
-        - name: aio_error
-        - name: aio_waitcomplete
+          desc: asynchronous write to a file
         - name: aio_fsync
+          desc: asynchronous `fsync`
         - name: aio_mlock
+          desc: asynchronous `mlock`
+        - name: aio_return
+          desc: retrieve return status of an asynchronous I/O operation
+        - name: aio_error
+          desc: retrieve error status of asynchronous I/O operation
+        - name: aio_suspend
+          desc: suspend until asynchronous I/O operations complete or time out
+        - name: aio_waitcomplete
+          desc: wait for the next completion of an asynchronous I/O operation
+        - name: aio_cancel
+          desc: cancel an outstanding asynchronous I/O operation
     linux-async-io:
       name: "Asynchronous I/O (Linux)"
       syscalls:
-        - name: io_cancel
-        - name: io_destroy
-        - name: io_getevents
-        - name: io_pgetevents
         - name: io_setup
+          desc: create an asynchronous I/O context
         - name: io_submit
-        - name: io_uring_enter
-        - name: io_uring_register
+          desc: submit asynchronous I/O blocks for processing
+        - name: io_getevents
+          desc: read asynchronous I/O events from the completion queue
+        - name: io_pgetevents
+          desc: read asynchronous I/O events from the completion queue
+        - name: io_cancel
+          desc: cancel an outstanding asynchronous I/O operation
+        - name: io_destroy
+          desc: destroy an asynchronous I/O context
+    io-uring:
+      name: "io_uring (Linux)"
+      syscalls:
         - name: io_uring_setup
+          desc: setup a context for performing asynchronous I/O
+        - name: io_uring_register
+          desc: register files or user buffers for asynchronous I/O
+        - name: io_uring_enter
+          desc: initiate and/or complete asynchronous I/O
 security:
   categories:
     sandboxing:
       syscalls:
-        - name: msyscall
-          desc: permit syscalls from a region of pages
-        - name: pinsyscall
-          desc: specify the call stub for a specific system call
-        - name: pledge
-          desc: force the current process into a restricted-service operating mode
-        - name: revoke
-          desc: revoke file access
         - name: seccomp
           desc: operate on Secure Computing state of the process
+        - name: revoke
+          desc: revoke file access
+        - name: pledge
+          desc: force the current process into a restricted-service operating mode
         - name: unveil
           desc: unveil parts of a restricted filesystem view
+        - name: msyscall
+          desc: permit system calls from a region of pages
+        - name: pinsyscall
+          desc: specify the call stub for a specific system call
     freebsd-jails:
       name: "Jails (FreeBSD)"
+      desc: See [Jails and Containers](https://docs.freebsd.org/en/books/handbook/jails/) chapter in the FreeBSD Handbook for more details.
       syscalls:
         - name: jail
           desc: sets up a jail and locks the current process in it
@@ -532,11 +834,15 @@ security:
           desc: removes the jail
     linux-capabilities:
       name: "Capabilities (Linux)"
+      desc: See [`capabilities(7)`](https://man7.org/linux/man-pages/man7/capabilities.7.html) man page for more details.
       syscalls:
         - name: capget
+          desc: get capabilities of thread(s)
         - name: capset
+          desc: set capabilities of thread(s)
     linux-namespaces:
       name: "Namespaces (Linux)"
+      desc: See [`namespaces(7)`](https://man7.org/linux/man-pages/man7/namespaces.7.html) man page for more details.
       syscalls:
         - name: setns
           desc: reassociate thread with a namespace
@@ -544,120 +850,192 @@ security:
           desc: disassociate parts of the process execution context
     linux-landlock:
       name: "Landlock (Linux)"
+      desc: See [`landlock(7)`](https://man7.org/linux/man-pages/man7/landlock.7.html) man page for more details.
       syscalls:
         - name: landlock_create_ruleset
+          desc: create a new Landlock ruleset
         - name: landlock_add_rule
+          desc: add a new Landlock rule to a ruleset
         - name: landlock_restrict_self
+          desc: enforce a Landlock ruleset
     entropy-and-random:
       syscalls:
         - name: getentropy
+          desc: get high-quality entropy
         - name: getrandom
-    ipsec-keys:
-      name: "IPSec keys"
+          desc: get high-quality entropy
+    kernel-key-retention-service:
+      name: Kernel Key Retention Service
+      desc: See [Kernel Key Retention Service](https://www.kernel.org/doc/html/v5.0/security/keys/core.html) documentation for more details.
       syscalls:
         - name: add_key
-        - name: keyctl
+          desc: add a key to the kernel's key management facility
         - name: request_key
+          desc: request a key from the kernel's key management facility
+        - name: keyctl
+          desc: manipulate the kernel's key management facility
 interprocess-communication:
   categories:
     system-v-semaphores:
       name: "System V semaphores"
       syscalls:
-        - name: semctl
-        - name: semtimedop
-        - name: __semctl
         - name: semget
+          desc: retrieve semaphore set
         - name: semop
+          desc: atomic operations on a set of semaphores
+        - name: semtimedop
+          desc: atomic operations on a set of semaphores (with timeout)
+        - name: semctl
+          desc: control operations on a set of semaphores
+        - name: __semctl
+          desc: control operations on a set of semaphores
     message-queues:
       name: "POSIX message queues"
       syscalls:
-        - name: msgctl
         - name: msgget
+          desc: retrieve message queue
         - name: msgrcv
+          desc: receive a message from a message queue
         - name: msgsnd
-        - name: mq_getsetattr
-        - name: mq_notify
+          desc: send a message to a message queue
+        - name: msgctl
+          desc: control operations on a message queue
         - name: mq_open
+          desc: open a message queue
         - name: mq_timedreceive
+          desc: receive a message from a message queue
         - name: mq_timedsend
+          desc: send a message to a message queue
+        - name: mq_notify
+          desc: register for notification when a message is available
+        - name: mq_getsetattr
+          desc: get/set message queue attributes
         - name: mq_unlink
+          desc: remove a message queue
     shared-memory:
       syscalls:
         - name: shmat
-        - name: shmctl
-        - name: shmdt
+          desc: map shared memory area
         - name: shmget
+          desc: get shared memory area identifier
+        - name: shmctl
+          desc: shared memory area control operations
+        - name: shmdt
+          desc: unmap shared memory area
 system:
   categories:
     general:
       syscalls:
         - name: reboot
-        - name: shutdown
+          desc: reboot system or halt processor
         - name: sysctl
-        - name: setdomainname
-        - name: sethostname
-        - name: uname
+          desc: manipulate system information
         - name: sysinfo
+          desc: return system information
+        - name: uname
+          desc: get name and information about current kernel
+        - name: sethostname
+          desc: manipulate hostname
+        - name: setdomainname
+          desc: manipulate NIS domain name
     kernel:
       categories:
         kernel-module-management:
           name: "Kernel module management (Linux)"
           syscalls:
-            - name: finit_module
             - name: init_module
+              desc: load a kernel module
+            - name: finit_module
+              desc: load a kernel module (referenced by a file descriptor)
             - name: delete_module
+              desc: unload a kernel module
         kexec:
           name: "kexec (Linux)"
           syscalls:
-            - name: kexec_file_load
             - name: kexec_load
+              desc: load a new kernel for later execution
+            - name: kexec_file_load
+              desc: load a new kernel for later execution (referenced by a file descriptor)
         freebsd-dynamic-kernel-linker-facility:
           name: "Dynamic kernel linker facility (FreeBSD)"
+          desc: See [`kld(4)`](https://man.freebsd.org/cgi/man.cgi?query=kld&sektion=4) man page for more details
           syscalls:
-            - name: kldsym
             - name: kldload
+              desc: load KLD file into the kernel
             - name: kldunload
+              desc: unload KLD fileid from the kernel
             - name: kldunloadf
+              desc: unload KLD fileid from the kernel
+            - name: kldsym
+              desc: look up address by symbol name in a KLD file
             - name: kldfind
+              desc: return the fileid of a KLD file
             - name: kldnext
+              desc: return the fileid of the next KLD file
             - name: kldstat
+              desc: get status of a KLD file
             - name: kldfirstmod
+              desc: return first module ID from the KLD file
     system-log:
       syscalls:
-        - name: sendsyslog
-        - name: utrace
         - name: syslog
+          desc: read and/or clear kernel message ring buffer
+        - name: sendsyslog
+          desc: send a message to `syslogd(8)` daemon
+        - name: utrace
+          desc: insert user record in `ktrace(2)` log
     swap:
       syscalls:
         - name: swapctl
-        - name: swapoff
+          desc: modify swap configuration
         - name: swapon
+          desc: start swapping to a file/device
+        - name: swapoff
+          desc: stop swapping from a file/device
     clock-and-time-functions:
       syscalls:
         - name: gettimeofday
+          desc: get the time of day
         - name: settimeofday
+          desc: set the time of day
         - name: clock_gettime
+          desc: get the time of a given clock
         - name: clock_settime
+          desc: set the time for a given clock
         - name: clock_getres
+          desc: get the resolution of a given clock
         - name: clock_adjtime
-        - name: adjtimex
-        - name: adjfreq
+          desc: tune a given clock
         - name: adjtime
+          desc: tune the system clock
+        - name: adjtimex
+          desc: tune the system clock
+        - name: adjfreq
+          desc: correct the rate of the system clock
     quotas-and-accounting:
       syscalls:
         - name: acct
+          desc: enable or disable process accounting
         - name: quotactl
+          desc: manipulate filesystem quotas
     performance-profiling-and-ebpf:
       name: "Performance, profiling and and eBPF"
       syscalls:
         - name: bpf
+          desc: manipulate extended Berkeley Packet Filters
         - name: perf_event_open
+          desc: set up performance monitoring
         - name: profil
+          desc: manipulate program counter profiling of the current process
 meta-system-calls:
   syscalls:
-    - name: sysarch
-    - name: __syscall
     - name: syscall
+      desc: indirect system call
+    - name: __syscall
+      desc: indirect system call
+    - name: sysarch
+      desc: architecture-dependent system call
     - name: arch_specific_syscall
+      desc: architecture-dependent system call
     - name: restart_syscall
-    - name: rseq
+      desc: restart a system call after interruption by a stop signal
