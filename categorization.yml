@@ -338,25 +338,19 @@ processes-and-threads:
         - name: set_robust_list
           desc: set list of robust futexes
     operations-on-other-processes-and-threads:
-      categories:
-        tracing:
-          syscalls:
-            - name: ktrace
-              desc: configure process tracing
-            - name: ptrace
-              desc: configure process tracing
-        virtual-memory:
-          syscalls:
-            - name: process_vm_readv
-              desc: transfer data between process address spaces
-            - name: process_vm_writev
-              desc: transfer data between process address spaces
-        other:
-          syscalls:
-            - name: prctl
-              desc: various operations on a process or a thread
-            - name: kcmp
-              desc: compare two processes to determine if they share a kernel resource
+      syscalls:
+        - name: ktrace
+          desc: configure process tracing
+        - name: ptrace
+          desc: configure process tracing
+        - name: process_vm_readv
+          desc: transfer data between process address spaces
+        - name: process_vm_writev
+          desc: transfer data between process address spaces
+        - name: prctl
+          desc: various operations on a process or a thread
+        - name: kcmp
+          desc: compare two processes to determine if they share a kernel resource
 file-descriptors-and-handles:
   categories:
     open-or-create-a-file:

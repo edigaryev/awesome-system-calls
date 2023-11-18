@@ -66,12 +66,6 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
   * [Operations on other processes and threads](#operations-on-other-processes-and-threads)
 
-    * [Tracing](#tracing)
-
-    * [Virtual memory](#virtual-memory)
-
-    * [Other](#other)
-
 * [File descriptors and handles](#file-descriptors-and-handles)
 
   * [Open or create a file](#open-or-create-a-file)
@@ -440,24 +434,12 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
 #### Operations on other processes and threads
 
-##### Tracing
-
 | Name | OS | Description |
 |------|----|-------------|
 | `ktrace` | [🐡](https://man.openbsd.org/ktrace.2), [😈](https://www.freebsd.org/cgi/man.cgi?query=ktrace&sektion=2) | configure process tracing |
 | `ptrace` | [🐡](https://man.openbsd.org/ptrace.2), [🐧](https://man7.org/linux/man-pages/man2/ptrace.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=ptrace&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/ptrace.2.html) | configure process tracing |
-
-##### Virtual memory
-
-| Name | OS | Description |
-|------|----|-------------|
 | `process_vm_readv` | [🐧](https://man7.org/linux/man-pages/man2/process_vm_readv.2.html) | transfer data between process address spaces |
 | `process_vm_writev` | [🐧](https://man7.org/linux/man-pages/man2/process_vm_writev.2.html) | transfer data between process address spaces |
-
-##### Other
-
-| Name | OS | Description |
-|------|----|-------------|
 | `prctl` | [🐧](https://man7.org/linux/man-pages/man2/prctl.2.html) | various operations on a process or a thread |
 | `kcmp` | [🐧](https://man7.org/linux/man-pages/man2/kcmp.2.html) | compare two processes to determine if they share a kernel resource |
 
