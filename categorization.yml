@@ -157,7 +157,7 @@ processes-and-threads:
           desc: synchronously accept a signal
     virtual-memory:
       categories:
-        general:
+        allocation-and-deallocation:
           syscalls:
             - name: brk
               desc: change data segment size
@@ -167,51 +167,53 @@ processes-and-threads:
               desc: map files or devices into memory
             - name: mmap2
               desc: map files or devices into memory
+            - name: mremap
+              desc: remap a virtual memory address
+            - name: remap_file_pages
+              desc: create a nonlinear file mapping
+            - name: munmap
+              desc: remove a mapping
+        locking:
+          syscalls:
             - name: mlock
               desc: lock physical pages in memory
             - name: mlock2
               desc: lock physical pages in memory
             - name: mlockall
               desc: lock the address space of a process
+            - name: mincore
+              desc: determine whether pages are resident in memory
             - name: munlock
               desc: unlock physical pages in memory
             - name: munlockall
               desc: unlock the address space of a process
+        protection:
+          syscalls:
             - name: mprotect
               desc: control the protection of pages
             - name: minherit
               desc: control the inheritance of pages
             - name: mimmutable
               desc: control the immutability of pages
-            - name: msync
-              desc: synchronize a mapped region
-            - name: madvise
-              desc: give advice about use of memory
-            - name: process_madvise
-              desc: give advice about use of memory to a process
-            - name: mquery
-              desc: provide mapping hints to applications
-            - name: mremap
-              desc: remap a virtual memory address
-            - name: remap_file_pages
-              desc: create a nonlinear file mapping
-            - name: mincore
-              desc: determine whether pages are resident in memory
-            - name: munmap
-              desc: remove a mapping
-            - name: mbind
-              desc: set memory policy for a memory range
             - name: kbind
               desc: update protected memory for lazy-binding
-        protection-keys:
-          name: "Memory Protection Keys (Linux)"
-          syscalls:
             - name: pkey_alloc
               desc: allocate a protection key
             - name: pkey_mprotect
               desc: control the protection of pages and their protection keys
             - name: pkey_free
               desc: free a protection key
+        synchronization-advices-and-numa:
+          name: "Hints and synchronization"
+          syscalls:
+            - name: madvise
+              desc: give advice about use of memory
+            - name: process_madvise
+              desc: give advice about use of memory to a process
+            - name: mquery
+              desc: provide mapping hints to applications
+            - name: msync
+              desc: synchronize a mapped region
     timers:
       syscalls:
         - name: getitimer
@@ -259,8 +261,10 @@ processes-and-threads:
           desc: retrieve NUMA memory policy for a thread
         - name: set_mempolicy
           desc: set default NUMA memory policy for a thread
+        - name: mbind
+          desc: set memory policy for a memory range
         - name: move_pages
-          desc:  move individual pages of a process to another node
+          desc: move individual pages of a process to another node
         - name: migrate_pages
           desc: move all pages in a process to another set of nodes
     scheduling:

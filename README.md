@@ -42,9 +42,13 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
   * [Virtual memory](#virtual-memory)
 
-    * [General](#general)
+    * [Allocation and deallocation](#allocation-and-deallocation)
 
-    * [Memory Protection Keys (Linux)](#memory-protection-keys-linux)
+    * [Locking](#locking)
+
+    * [Protection](#protection)
+
+    * [Hints and synchronization](#hints-and-synchronization)
 
   * [Timers](#timers)
 
@@ -299,7 +303,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
 #### Virtual memory
 
-##### General
+##### Allocation and deallocation
 
 | Name | OS | Description |
 |------|----|-------------|
@@ -307,32 +311,41 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 | `sbrk` | [😈](https://www.freebsd.org/cgi/man.cgi?query=sbrk&sektion=2) | increase data segment size |
 | `mmap` | [🐡](https://man.openbsd.org/mmap.2), [🐧](https://man7.org/linux/man-pages/man2/mmap.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=mmap&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/mmap.2.html) | map files or devices into memory |
 | `mmap2` | [🐧](https://man7.org/linux/man-pages/man2/mmap2.2.html) | map files or devices into memory |
-| `mlock` | [🐡](https://man.openbsd.org/mlock.2), [🐧](https://man7.org/linux/man-pages/man2/mlock.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=mlock&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/mlock.2.html) | lock physical pages in memory |
-| `mlock2` | [🐧](https://man7.org/linux/man-pages/man2/mlock2.2.html) | lock physical pages in memory |
-| `mlockall` | [🐡](https://man.openbsd.org/mlockall.2), [🐧](https://man7.org/linux/man-pages/man2/mlockall.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=mlockall&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/mlockall.2.html) | lock the address space of a process |
-| `munlock` | [🐡](https://man.openbsd.org/munlock.2), [🐧](https://man7.org/linux/man-pages/man2/munlock.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=munlock&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/munlock.2.html) | unlock physical pages in memory |
-| `munlockall` | [🐡](https://man.openbsd.org/munlockall.2), [🐧](https://man7.org/linux/man-pages/man2/munlockall.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=munlockall&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/munlockall.2.html) | unlock the address space of a process |
-| `mprotect` | [🐡](https://man.openbsd.org/mprotect.2), [🐧](https://man7.org/linux/man-pages/man2/mprotect.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=mprotect&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/mprotect.2.html) | control the protection of pages |
-| `minherit` | [🐡](https://man.openbsd.org/minherit.2), [😈](https://www.freebsd.org/cgi/man.cgi?query=minherit&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/minherit.2.html) | control the inheritance of pages |
-| `mimmutable` | [🐡](https://man.openbsd.org/mimmutable.2) | control the immutability of pages |
-| `msync` | [🐡](https://man.openbsd.org/msync.2), [🐧](https://man7.org/linux/man-pages/man2/msync.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=msync&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/msync.2.html) | synchronize a mapped region |
-| `madvise` | [🐡](https://man.openbsd.org/madvise.2), [🐧](https://man7.org/linux/man-pages/man2/madvise.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=madvise&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/madvise.2.html) | give advice about use of memory |
-| `process_madvise` | [🐧](https://man7.org/linux/man-pages/man2/process_madvise.2.html) | give advice about use of memory to a process |
-| `mquery` | [🐡](https://man.openbsd.org/mquery.2) | provide mapping hints to applications |
 | `mremap` | [🐧](https://man7.org/linux/man-pages/man2/mremap.2.html) | remap a virtual memory address |
 | `remap_file_pages` | [🐧](https://man7.org/linux/man-pages/man2/remap_file_pages.2.html) | create a nonlinear file mapping |
-| `mincore` | [🐧](https://man7.org/linux/man-pages/man2/mincore.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=mincore&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/mincore.2.html) | determine whether pages are resident in memory |
 | `munmap` | [🐡](https://man.openbsd.org/munmap.2), [🐧](https://man7.org/linux/man-pages/man2/munmap.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=munmap&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/munmap.2.html) | remove a mapping |
-| `mbind` | [🐧](https://man7.org/linux/man-pages/man2/mbind.2.html) | set memory policy for a memory range |
-| `kbind` | [🐡](https://man.openbsd.org/kbind.2) | update protected memory for lazy-binding |
 
-##### Memory Protection Keys (Linux)
+##### Locking
 
 | Name | OS | Description |
 |------|----|-------------|
+| `mlock` | [🐡](https://man.openbsd.org/mlock.2), [🐧](https://man7.org/linux/man-pages/man2/mlock.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=mlock&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/mlock.2.html) | lock physical pages in memory |
+| `mlock2` | [🐧](https://man7.org/linux/man-pages/man2/mlock2.2.html) | lock physical pages in memory |
+| `mlockall` | [🐡](https://man.openbsd.org/mlockall.2), [🐧](https://man7.org/linux/man-pages/man2/mlockall.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=mlockall&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/mlockall.2.html) | lock the address space of a process |
+| `mincore` | [🐧](https://man7.org/linux/man-pages/man2/mincore.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=mincore&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/mincore.2.html) | determine whether pages are resident in memory |
+| `munlock` | [🐡](https://man.openbsd.org/munlock.2), [🐧](https://man7.org/linux/man-pages/man2/munlock.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=munlock&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/munlock.2.html) | unlock physical pages in memory |
+| `munlockall` | [🐡](https://man.openbsd.org/munlockall.2), [🐧](https://man7.org/linux/man-pages/man2/munlockall.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=munlockall&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/munlockall.2.html) | unlock the address space of a process |
+
+##### Protection
+
+| Name | OS | Description |
+|------|----|-------------|
+| `mprotect` | [🐡](https://man.openbsd.org/mprotect.2), [🐧](https://man7.org/linux/man-pages/man2/mprotect.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=mprotect&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/mprotect.2.html) | control the protection of pages |
+| `minherit` | [🐡](https://man.openbsd.org/minherit.2), [😈](https://www.freebsd.org/cgi/man.cgi?query=minherit&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/minherit.2.html) | control the inheritance of pages |
+| `mimmutable` | [🐡](https://man.openbsd.org/mimmutable.2) | control the immutability of pages |
+| `kbind` | [🐡](https://man.openbsd.org/kbind.2) | update protected memory for lazy-binding |
 | `pkey_alloc` | [🐧](https://man7.org/linux/man-pages/man2/pkey_alloc.2.html) | allocate a protection key |
 | `pkey_mprotect` | [🐧](https://man7.org/linux/man-pages/man2/pkey_mprotect.2.html) | control the protection of pages and their protection keys |
 | `pkey_free` | [🐧](https://man7.org/linux/man-pages/man2/pkey_free.2.html) | free a protection key |
+
+##### Hints and synchronization
+
+| Name | OS | Description |
+|------|----|-------------|
+| `madvise` | [🐡](https://man.openbsd.org/madvise.2), [🐧](https://man7.org/linux/man-pages/man2/madvise.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=madvise&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/madvise.2.html) | give advice about use of memory |
+| `process_madvise` | [🐧](https://man7.org/linux/man-pages/man2/process_madvise.2.html) | give advice about use of memory to a process |
+| `mquery` | [🐡](https://man.openbsd.org/mquery.2) | provide mapping hints to applications |
+| `msync` | [🐡](https://man.openbsd.org/msync.2), [🐧](https://man7.org/linux/man-pages/man2/msync.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=msync&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/msync.2.html) | synchronize a mapped region |
 
 #### Timers
 
@@ -368,6 +381,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 | `getcpu` | [🐧](https://man7.org/linux/man-pages/man2/getcpu.2.html) | determine CPU and NUMA node on which the calling thread is running |
 | `get_mempolicy` | [🐧](https://man7.org/linux/man-pages/man2/get_mempolicy.2.html) | retrieve NUMA memory policy for a thread |
 | `set_mempolicy` | [🐧](https://man7.org/linux/man-pages/man2/set_mempolicy.2.html) | set default NUMA memory policy for a thread |
+| `mbind` | [🐧](https://man7.org/linux/man-pages/man2/mbind.2.html) | set memory policy for a memory range |
 | `move_pages` | [🐧](https://man7.org/linux/man-pages/man2/move_pages.2.html) | move individual pages of a process to another node |
 | `migrate_pages` | [🐧](https://man7.org/linux/man-pages/man2/migrate_pages.2.html) | move all pages in a process to another set of nodes |
 
