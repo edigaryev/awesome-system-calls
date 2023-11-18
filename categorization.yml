@@ -125,6 +125,8 @@ processes-and-threads:
       syscalls:
         - name: kill
           desc: send signal to a process
+        - name: pidfd_send_signal
+          desc: send signal to a process (referenced by a file descriptor)
         - name: sigaction
           desc: examine and change a signal action
         - name: rt_sigaction
@@ -395,6 +397,8 @@ file-descriptors-and-handles:
           desc: create a file descriptor for accepting signals
         - name: pidfd_open
           desc: obtain a file descriptor that refers to a process
+        - name: pidfd_getfd
+          desc: obtain a duplicate of another process's file descriptor
     duplicate-a-file-descriptor:
       syscalls:
         - name: dup
@@ -463,13 +467,6 @@ file-descriptors-and-handles:
               desc: move data to/from a pipe
             - name: vmsplice
               desc: splice user pages to/from a pipe
-    pidfd:
-      name: "pidfd (Linux)"
-      syscalls:
-        - name: pidfd_send_signal
-          desc: send a signal to another process
-        - name: pidfd_getfd
-          desc: obtain a duplicate of another process's file descriptor
     close-a-file-descriptor:
       syscalls:
         - name: close

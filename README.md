@@ -92,8 +92,6 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
     * [Zero-copy](#zero-copy)
 
-  * [pidfd (Linux)](#pidfd-linux)
-
   * [Close a file descriptor](#close-a-file-descriptor)
 
 * [File system](#file-system)
@@ -285,6 +283,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 | Name | OS | Description |
 |------|----|-------------|
 | `kill` | [🐡](https://man.openbsd.org/kill.2), [🐧](https://man7.org/linux/man-pages/man2/kill.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=kill&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/kill.2.html) | send signal to a process |
+| `pidfd_send_signal` | [🐧](https://man7.org/linux/man-pages/man2/pidfd_send_signal.2.html) | send signal to a process (referenced by a file descriptor) |
 | `sigaction` | [🐡](https://man.openbsd.org/sigaction.2), [😈](https://www.freebsd.org/cgi/man.cgi?query=sigaction&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/sigaction.2.html) | examine and change a signal action |
 | `rt_sigaction` | [🐧](https://man7.org/linux/man-pages/man2/rt_sigaction.2.html) | examine and change a signal action |
 | `sigaltstack` | [🐡](https://man.openbsd.org/sigaltstack.2), [🐧](https://man7.org/linux/man-pages/man2/sigaltstack.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=sigaltstack&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/sigaltstack.2.html) | manipulate signal stack context |
@@ -489,6 +488,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 | `userfaultfd` | [🐧](https://man7.org/linux/man-pages/man2/userfaultfd.2.html) | create a file descriptor for handling page faults in user space |
 | `signalfd4` | [🐧](https://man7.org/linux/man-pages/man2/signalfd4.2.html) | create a file descriptor for accepting signals |
 | `pidfd_open` | [🐧](https://man7.org/linux/man-pages/man2/pidfd_open.2.html) | obtain a file descriptor that refers to a process |
+| `pidfd_getfd` | [🐧](https://man7.org/linux/man-pages/man2/pidfd_getfd.2.html) | obtain a duplicate of another process's file descriptor |
 
 #### Duplicate a file descriptor
 
@@ -547,13 +547,6 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 | `tee` | [🐧](https://man7.org/linux/man-pages/man2/tee.2.html) | duplicate pipe content |
 | `splice` | [🐧](https://man7.org/linux/man-pages/man2/splice.2.html) | move data to/from a pipe |
 | `vmsplice` | [🐧](https://man7.org/linux/man-pages/man2/vmsplice.2.html) | splice user pages to/from a pipe |
-
-#### pidfd (Linux)
-
-| Name | OS | Description |
-|------|----|-------------|
-| `pidfd_send_signal` | [🐧](https://man7.org/linux/man-pages/man2/pidfd_send_signal.2.html) | send a signal to another process |
-| `pidfd_getfd` | [🐧](https://man7.org/linux/man-pages/man2/pidfd_getfd.2.html) | obtain a duplicate of another process's file descriptor |
 
 #### Close a file descriptor
 
