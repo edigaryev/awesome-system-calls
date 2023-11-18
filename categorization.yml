@@ -553,6 +553,7 @@ file-system:
         - name: lstat
           desc: get file status
         - name: fstat
+          desc: get file status (referenced by a file handle)
         - name: fstatat
           desc: get file status (relative to a directory file descriptor)
         - name: statx
