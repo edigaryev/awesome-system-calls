@@ -1,0 +1,14 @@
+container:
+  image: rust:latest
+
+task:
+  name: Lint (cargo fmt)
+  alias: lint
+  install_fmt_script: rustup component add rustfmt
+  run_fmt_script: cargo fmt --check
+
+task:
+  name: Lint (cargo clippy)
+  alias: lint
+  install_clippy_script: rustup component add clippy
+  run_clippy_script: cargo clippy
