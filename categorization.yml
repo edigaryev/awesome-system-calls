@@ -233,29 +233,23 @@ processes-and-threads:
         - name: timerfd_settime
           desc: arm/disarm a timer that notifies via file descriptor
     metadata:
-      categories:
-        process:
-          syscalls:
-            - name: getpid
-              desc: get process ID
-            - name: getppid
-              desc: get process ID of the parent
-        thread:
-          syscalls:
-            - name: gettid
-              desc: get thread ID
-            - name: getthrid
-              desc: get thread ID
-            - name: getthrname
-              desc: get thread name
-            - name: setthrname
-              desc: set thread name
-        other:
-          syscalls:
-            - name: issetugid
-              desc: check if current executable is running `setuid` or `setgid`
-            - name: personality
-              desc: set the process execution domain
+      syscalls:
+        - name: getpid
+          desc: get process ID
+        - name: getppid
+          desc: get process ID of the parent
+        - name: gettid
+          desc: get thread ID
+        - name: getthrid
+          desc: get thread ID
+        - name: getthrname
+          desc: get thread name
+        - name: setthrname
+          desc: set thread name
+        - name: issetugid
+          desc: check if current executable is running `setuid` or `setgid`
+        - name: personality
+          desc: set the process execution domain
     cpu-and-numa:
       name: "CPU and NUMA"
       syscalls:

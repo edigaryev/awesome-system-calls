@@ -48,12 +48,6 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
   * [Metadata](#metadata)
 
-    * [Process](#process)
-
-    * [Thread](#thread)
-
-    * [Other](#other)
-
   * [CPU and NUMA](#cpu-and-numa)
 
   * [Scheduling](#scheduling)
@@ -358,26 +352,14 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
 #### Metadata
 
-##### Process
-
 | Name | OS | Description |
 |------|----|-------------|
 | `getpid` | [🐡](https://man.openbsd.org/getpid.2), [🐧](https://man7.org/linux/man-pages/man2/getpid.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=getpid&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/getpid.2.html) | get process ID |
 | `getppid` | [🐡](https://man.openbsd.org/getppid.2), [🐧](https://man7.org/linux/man-pages/man2/getppid.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=getppid&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/getppid.2.html) | get process ID of the parent |
-
-##### Thread
-
-| Name | OS | Description |
-|------|----|-------------|
 | `gettid` | [🐧](https://man7.org/linux/man-pages/man2/gettid.2.html), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/gettid.2.html) | get thread ID |
 | `getthrid` | [🐡](https://man.openbsd.org/getthrid.2) | get thread ID |
 | `getthrname` | [🐡](https://man.openbsd.org/getthrname.2) | get thread name |
 | `setthrname` | [🐡](https://man.openbsd.org/setthrname.2) | set thread name |
-
-##### Other
-
-| Name | OS | Description |
-|------|----|-------------|
 | `issetugid` | [🐡](https://man.openbsd.org/issetugid.2), [😈](https://www.freebsd.org/cgi/man.cgi?query=issetugid&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/issetugid.2.html) | check if current executable is running `setuid` or `setgid` |
 | `personality` | [🐧](https://man7.org/linux/man-pages/man2/personality.2.html) | set the process execution domain |
 
