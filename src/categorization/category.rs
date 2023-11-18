@@ -20,6 +20,20 @@ impl Category {
         name: &str,
         oses: &[Box<dyn OS>],
     ) -> HashMap<&'static str, Value> {
+        if self.categories.is_none() && self.syscalls.is_none() {
+            panic!(
+                "category {:?} is empty, please either add \"categories:\" or \"syscalls:\"",
+                name
+            )
+        }
+
+        if self.categories.is_some() && self.syscalls.is_some() {
+            panic!(
+                "category {:?} has both \"categories:\" and \"syscalls:\", please only use one",
+                name
+            )
+        }
+
         let final_name = self.name.clone().unwrap_or(name.to_sentence_case());
 
         let mut transformed = HashMap::from([

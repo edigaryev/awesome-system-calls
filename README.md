@@ -26,7 +26,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
   * [Lifecycle](#lifecycle)
 
-    * [Threads](#threads)
+  * [Lifecycle (thread-specific)](#lifecycle-thread-specific)
 
   * [File system relationships](#file-system-relationships)
 
@@ -41,6 +41,8 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
   * [Signals](#signals)
 
   * [Virtual memory](#virtual-memory)
+
+    * [General](#general)
 
     * [Memory Protection Keys (Linux)](#memory-protection-keys-linux)
 
@@ -211,7 +213,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 | `waitid` | [🐡](https://man.openbsd.org/waitid.2), [🐧](https://man7.org/linux/man-pages/man2/waitid.2.html), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/waitid.2.html) | wait for process to change state |
 | `exit` | [🐡](https://man.openbsd.org/exit.2), [🐧](https://man7.org/linux/man-pages/man2/exit.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=exit&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/exit.2.html) | terminate the calling process |
 
-##### Threads
+#### Lifecycle (thread-specific)
 
 | Name | OS | Description |
 |------|----|-------------|
@@ -302,6 +304,8 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 | `__thrsigdivert` | [🐡](https://man.openbsd.org/__thrsigdivert.2) | synchronously accept a signal |
 
 #### Virtual memory
+
+##### General
 
 | Name | OS | Description |
 |------|----|-------------|
