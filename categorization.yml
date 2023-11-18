@@ -337,7 +337,7 @@ processes-and-threads:
           desc: get list of robust futexes
         - name: set_robust_list
           desc: set list of robust futexes
-    operations-on-other-processes:
+    operations-on-other-processes-and-threads:
       categories:
         tracing:
           syscalls:

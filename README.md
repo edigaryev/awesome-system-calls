@@ -62,7 +62,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
   * [Locking and synchronization](#locking-and-synchronization)
 
-  * [Operations on other processes](#operations-on-other-processes)
+  * [Operations on other processes and threads](#operations-on-other-processes-and-threads)
 
     * [Tracing](#tracing)
 
@@ -434,7 +434,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 | `get_robust_list` | [🐧](https://man7.org/linux/man-pages/man2/get_robust_list.2.html) | get list of robust futexes |
 | `set_robust_list` | [🐧](https://man7.org/linux/man-pages/man2/set_robust_list.2.html) | set list of robust futexes |
 
-#### Operations on other processes
+#### Operations on other processes and threads
 
 ##### Tracing
 
