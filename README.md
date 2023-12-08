@@ -12,7 +12,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
 ## System call statistics
 
-* OpenBSD (🐡) — 221
+* OpenBSD (🐡) — 222
 
 * Linux (🐧) — 349
 
@@ -580,6 +580,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 | `rename` | [🐡](https://man.openbsd.org/rename.2), [😈](https://www.freebsd.org/cgi/man.cgi?query=rename&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/rename.2.html) | change the name or location of a file |
 | `renameat` | [🐡](https://man.openbsd.org/renameat.2), [🐧](https://man7.org/linux/man-pages/man2/renameat.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=renameat&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/renameat.2.html) | change the name or location of a file (relative to a directory file descriptor) |
 | `renameat2` | [🐧](https://man7.org/linux/man-pages/man2/renameat2.2.html) | change the name or location of a file (relative to a directory file descriptor) |
+| `renameatx_np` | [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/renameatx_np.2.html) | change the name or location of a file (relative to a directory file descriptor) |
 | `truncate` | [🐡](https://man.openbsd.org/truncate.2), [🐧](https://man7.org/linux/man-pages/man2/truncate.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=truncate&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/truncate.2.html) | truncate or extend a file to a specified length |
 | `ftruncate` | [🐡](https://man.openbsd.org/ftruncate.2), [🐧](https://man7.org/linux/man-pages/man2/ftruncate.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=ftruncate&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/ftruncate.2.html) | truncate or extend a file to a specified length (referenced by a file descriptor) |
 | `fallocate` | [🐧](https://man7.org/linux/man-pages/man2/fallocate.2.html) | manipulate file space |

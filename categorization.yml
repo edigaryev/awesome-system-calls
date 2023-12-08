@@ -507,6 +507,8 @@ file-system:
           desc: change the name or location of a file (relative to a directory file descriptor)
         - name: renameat2
           desc: change the name or location of a file (relative to a directory file descriptor)
+        - name: renameatx_np
+          desc: change the name or location of a file (relative to a directory file descriptor)
         - name: truncate
           desc: truncate or extend a file to a specified length
         - name: ftruncate

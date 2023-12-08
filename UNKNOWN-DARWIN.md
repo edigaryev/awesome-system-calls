@@ -2,7 +2,7 @@
 
 # Uncategorized Darwin System Calls
 
-We don't know anything about 268 Darwin (🍏) system calls. Help us categorize these bad boys:
+We don't know anything about 267 Darwin (🍏) system calls. Help us categorize these bad boys:
 
 * crossarch_trap
 * getlogin
@@ -210,7 +210,6 @@ We don't know anything about 268 Darwin (🍏) system calls. Help us categorize 
 * guarded_write_np
 * guarded_pwrite_np
 * guarded_writev_np
-* renameatx_np
 * mremap_encrypted
 * netagent_trigger
 * stack_snapshot_with_config
