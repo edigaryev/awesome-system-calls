@@ -12,9 +12,9 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
 ## System call statistics
 
-* OpenBSD (🐡) — 222
+* OpenBSD (🐡) — 221
 
-* Linux (🐧) — 349
+* Linux (🐧) — 354
 
 * FreeBSD (😈) — 392
 
@@ -990,7 +990,7 @@ See [`kld(4)`](https://man.freebsd.org/cgi/man.cgi?query=kld&sektion=4) man page
 
 | Name | OS | Description |
 |------|----|-------------|
-| `syscall` | [🐡](https://man.openbsd.org/syscall.2), [😈](https://www.freebsd.org/cgi/man.cgi?query=syscall&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/syscall.2.html) | indirect system call |
+| `syscall` | [😈](https://www.freebsd.org/cgi/man.cgi?query=syscall&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/syscall.2.html) | indirect system call |
 | `__syscall` | [😈](https://www.freebsd.org/cgi/man.cgi?query=__syscall&sektion=2) | indirect system call |
 | `sysarch` | [🐡](https://man.openbsd.org/sysarch.2), [😈](https://www.freebsd.org/cgi/man.cgi?query=sysarch&sektion=2) | architecture-dependent system call |
 | `arch_specific_syscall` | [🐧](https://man7.org/linux/man-pages/man2/arch_specific_syscall.2.html) | architecture-dependent system call |
