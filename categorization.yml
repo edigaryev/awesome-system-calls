@@ -509,6 +509,10 @@ file-system:
           desc: change the name or location of a file (relative to a directory file descriptor)
         - name: renameatx_np
           desc: change the name or location of a file (relative to a directory file descriptor)
+        - name: clonefileat
+          desc: create a copy-on-write clone of files
+        - name: fclonefileat
+          desc: create a copy-on-write clone of files (referenced by a file descriptor)
         - name: truncate
           desc: truncate or extend a file to a specified length
         - name: ftruncate

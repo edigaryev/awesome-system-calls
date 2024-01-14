@@ -2,7 +2,7 @@
 
 # Uncategorized Darwin System Calls
 
-We don't know anything about 267 Darwin (🍏) system calls. Help us categorize these bad boys:
+We don't know anything about 265 Darwin (🍏) system calls. Help us categorize these bad boys:
 
 * crossarch_trap
 * getlogin
@@ -195,7 +195,6 @@ We don't know anything about 267 Darwin (🍏) system calls. Help us categorize 
 * coalition_info
 * necp_match_policy
 * getattrlistbulk
-* clonefileat
 * openat_nocancel
 * fstatat64
 * getattrlistat
@@ -236,7 +235,6 @@ We don't know anything about 267 Darwin (🍏) system calls. Help us categorize 
 * __channel_set_opt
 * ulock_wait
 * ulock_wake
-* fclonefileat
 * fs_snapshot
 * register_uexc_handler
 * terminate_with_payload
