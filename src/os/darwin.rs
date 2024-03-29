@@ -7,7 +7,7 @@ pub struct Darwin {
 
 impl Darwin {
     pub fn new() -> Result<Self> {
-        let syscall_header = fetch_url("https://raw.githubusercontent.com/alexey-lysiuk/macos-sdk/main/MacOSX14.2.sdk/usr/include/sys/syscall.h")?;
+        let syscall_header = fetch_url("https://raw.githubusercontent.com/alexey-lysiuk/macos-sdk/main/MacOSX14.4.sdk/usr/include/sys/syscall.h")?;
 
         Ok(Darwin {
             syscalls: Self::extract_syscalls(syscall_header)?,
