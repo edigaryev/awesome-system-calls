@@ -41,7 +41,7 @@ impl Category {
             ("desc", Value::from_serializable(&self.desc)),
             (
                 "slug",
-                Value::from_serializable(&final_name.to_kebab_case()),
+                Value::from_serializable(&github_slugger::slug(&final_name)),
             ),
         ]);
 

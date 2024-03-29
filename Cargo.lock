@@ -82,6 +82,7 @@ dependencies = [
  "Inflector",
  "clap",
  "cmacros",
+ "github-slugger",
  "indexmap",
  "minijinja",
  "regex",
@@ -209,6 +210,16 @@ dependencies = [
  "cfg-if",
  "libc",
  "wasi",
+]
+
+[[package]]
+name = "github-slugger"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "721820f4eab1c427d482e144b63288754d9872fb7f0d72d73ab101008ef43147"
+dependencies = [
+ "once_cell",
+ "regex",
 ]
 
 [[package]]

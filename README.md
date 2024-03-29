@@ -84,7 +84,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
   * [Provide file descriptor hints](#provide-file-descriptor-hints)
 
-  * [I/O on a file descriptor](#i-o-on-a-file-descriptor)
+  * [I/O on a file descriptor](#io-on-a-file-descriptor)
 
     * [Read](#read)
 
@@ -128,25 +128,25 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
     * [Socket metadata](#socket-metadata)
 
-    * [I/O on a socket](#i-o-on-a-socket)
+    * [I/O on a socket](#io-on-a-socket)
 
   * [NFS](#nfs)
 
-* [Polling, multiplexing and asynchronous I/O](#polling-multiplexing-and-asynchronous-i-o)
+* [Polling, multiplexing and asynchronous I/O](#polling-multiplexing-and-asynchronous-io)
 
   * [Polling and multiplexing](#polling-and-multiplexing)
 
-  * [POSIX asynchronous I/O](#posix-asynchronous-i-o)
+  * [POSIX asynchronous I/O](#posix-asynchronous-io)
 
-  * [Asynchronous I/O (Linux)](#asynchronous-i-o-linux)
+  * [Asynchronous I/O (Linux)](#asynchronous-io-linux)
 
-  * [io_uring (Linux)](#io-uring-linux)
+  * [io_uring (Linux)](#io_uring-linux)
 
 * [Security](#security)
 
   * [Sandboxing](#sandboxing)
 
-  * [Jails (FreeBSD)](#jails-free-bsd)
+  * [Jails (FreeBSD)](#jails-freebsd)
 
   * [Capabilities (Linux)](#capabilities-linux)
 
@@ -176,7 +176,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
     * [kexec (Linux)](#kexec-linux)
 
-    * [Dynamic kernel linker facility (FreeBSD)](#dynamic-kernel-linker-facility-free-bsd)
+    * [Dynamic kernel linker facility (FreeBSD)](#dynamic-kernel-linker-facility-freebsd)
 
   * [System log](#system-log)
 
@@ -186,7 +186,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
   * [Quotas and accounting](#quotas-and-accounting)
 
-  * [Performance, profiling and and eBPF](#performance-profiling-and-and-e-bpf)
+  * [Performance, profiling and and eBPF](#performance-profiling-and-and-ebpf)
 
 * [Meta system calls](#meta-system-calls)
 
