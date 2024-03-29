@@ -809,7 +809,6 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 | `pledge` | [🐡](https://man.openbsd.org/pledge.2) | force the current process into a restricted-service operating mode |
 | `unveil` | [🐡](https://man.openbsd.org/unveil.2) | unveil parts of a restricted filesystem view |
 | `msyscall` | [🐡](https://man.openbsd.org/msyscall.2) | permit system calls from a region of pages |
-| `pinsyscall` |  | specify the call stub for a specific system call |
 
 #### Jails (FreeBSD)
 See [Jails and Containers](https://docs.freebsd.org/en/books/handbook/jails/) chapter in the FreeBSD Handbook for more details.

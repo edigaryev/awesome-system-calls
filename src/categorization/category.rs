@@ -48,7 +48,7 @@ impl Category {
         if let Some(syscalls) = &self.syscalls {
             let modified_syscalls: Vec<HashMap<&str, Value>> = syscalls
                 .iter()
-                .map(|syscall| syscall.transform(oses))
+                .flat_map(|syscall| syscall.transform(oses))
                 .collect();
 
             transformed.insert("syscalls", Value::from_serializable(&modified_syscalls));
