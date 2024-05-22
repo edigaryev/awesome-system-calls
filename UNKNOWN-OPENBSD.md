@@ -2,11 +2,12 @@
 
 # Uncategorized OpenBSD System Calls
 
-We don't know anything about 6 OpenBSD (🐡) system calls. Help us categorize these bad boys:
+We don't know anything about 7 OpenBSD (🐡) system calls. Help us categorize these bad boys:
 
 * break
 * __realpath
 * ypconnect
 * pinsyscalls
 * __tmpfd
+* pathconfat
 * __threxit
