@@ -3,7 +3,7 @@ name: Generate and propose changes
 on:
   push:
   schedule:
-    - "0 16 * * *"
+    - cron: "0 16 * * *"
 
 jobs:
   generate-and-propose-changes:
