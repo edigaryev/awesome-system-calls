@@ -1,0 +1,19 @@
+name: Generate and propose changes
+
+on:
+  push:
+  schedule:
+    - "0 16 * * *"
+
+jobs:
+  generate-and-propose-changes:
+    name: Generate and propose changes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+
+      - run: cargo run -- generate
+
+      - uses: peter-evans/create-pull-request@v6
