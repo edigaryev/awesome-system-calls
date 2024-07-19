@@ -2,7 +2,7 @@
 
 # Uncategorized Linux System Calls
 
-We don't know anything about 55 Linux (🐧) system calls. Help us categorize these bad boys:
+We don't know anything about 57 Linux (🐧) system calls. Help us categorize these bad boys:
 
 * lookup_dcookie
 * getdents64
@@ -49,6 +49,8 @@ We don't know anything about 55 Linux (🐧) system calls. Help us categorize th
 * lsm_get_self_attr
 * lsm_set_self_attr
 * lsm_list_modules
+* mseal
+* uretprobe
 * fcntl64
 * statfs64
 * fstatfs64
