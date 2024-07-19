@@ -21,3 +21,7 @@ jobs:
       - uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.PAT }}
+          commit-message: "Periodic update"
+          title: "Periodic update"
+          body: |
+            Produced by [`.github/workflows/update.yml`](.github/workflows/update.yml).
