@@ -24,4 +24,4 @@ jobs:
           commit-message: "Periodic update"
           title: "Periodic update"
           body: |
-            Produced by [`.github/workflows/update.yml`](.github/workflows/update.yml).
+            Produced by [`.github/workflows/update.yml`](https://github.com/edigaryev/awesome-system-calls/blob/main/.github/workflows/update.yml).
