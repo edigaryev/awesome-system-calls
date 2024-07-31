@@ -2,11 +2,10 @@
 
 # Uncategorized FreeBSD System Calls
 
-We don't know anything about 173 FreeBSD (😈) system calls. Help us categorize these bad boys:
+We don't know anything about 178 FreeBSD (😈) system calls. Help us categorize these bad boys:
 
 * break
 * getlogin
-* sstk
 * getdtablesize
 * nlm_syscall
 * lgetfh
@@ -177,3 +176,9 @@ We don't know anything about 173 FreeBSD (😈) system calls. Help us categorize
 * sigfastblock
 * __realpathat
 * rpctls_syscall
+* __specialfd
+* aio_writev
+* aio_readv
+* fspacectl
+* sched_getcpu
+* kqueuex
