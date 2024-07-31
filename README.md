@@ -16,7 +16,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
 * Linux (🐧) — 356
 
-* FreeBSD (😈) — 392
+* FreeBSD (😈) — 401
 
 * Darwin (🍏) — 453
 
@@ -307,7 +307,6 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 | Name | OS | Description |
 |------|----|-------------|
 | `brk` | [🐧](https://man7.org/linux/man-pages/man2/brk.2.html) | change data segment size |
-| `sbrk` | [😈](https://www.freebsd.org/cgi/man.cgi?query=sbrk&sektion=2) | increase data segment size |
 | `mmap` | [🐡](https://man.openbsd.org/mmap.2), [🐧](https://man7.org/linux/man-pages/man2/mmap.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=mmap&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/mmap.2.html) | map files or devices into memory |
 | `mmap2` | [🐧](https://man7.org/linux/man-pages/man2/mmap2.2.html) | map files or devices into memory |
 | `mremap` | [🐧](https://man7.org/linux/man-pages/man2/mremap.2.html) | remap a virtual memory address |
@@ -357,8 +356,8 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 | `timer_settime` | [🐧](https://man7.org/linux/man-pages/man2/timer_settime.2.html) | arm/disarm the POSIX per-process timer |
 | `timer_getoverrun` | [🐧](https://man7.org/linux/man-pages/man2/timer_getoverrun.2.html) | get overrun count for a POSIX per-process timer |
 | `timer_delete` | [🐧](https://man7.org/linux/man-pages/man2/timer_delete.2.html) | delete a POSIX per-process timer |
-| `timerfd_gettime` | [🐧](https://man7.org/linux/man-pages/man2/timerfd_gettime.2.html) | fetch state of a timer that notifies via file descriptor |
-| `timerfd_settime` | [🐧](https://man7.org/linux/man-pages/man2/timerfd_settime.2.html) | arm/disarm a timer that notifies via file descriptor |
+| `timerfd_gettime` | [🐧](https://man7.org/linux/man-pages/man2/timerfd_gettime.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=timerfd_gettime&sektion=2) | fetch state of a timer that notifies via file descriptor |
+| `timerfd_settime` | [🐧](https://man7.org/linux/man-pages/man2/timerfd_settime.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=timerfd_settime&sektion=2) | arm/disarm a timer that notifies via file descriptor |
 
 #### Metadata
 
@@ -441,7 +440,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 |------|----|-------------|
 | `futex` | [🐡](https://man.openbsd.org/futex.2), [🐧](https://man7.org/linux/man-pages/man2/futex.2.html) | fast userspace locking primitive |
 | `futex_waitv` | [🐧](https://man7.org/linux/man-pages/man2/futex_waitv.2.html) | wait on array of futexes |
-| `membarrier` | [🐧](https://man7.org/linux/man-pages/man2/membarrier.2.html) | issue memory barriers on a set of threads |
+| `membarrier` | [🐧](https://man7.org/linux/man-pages/man2/membarrier.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=membarrier&sektion=2) | issue memory barriers on a set of threads |
 | `get_robust_list` | [🐧](https://man7.org/linux/man-pages/man2/get_robust_list.2.html) | get list of robust futexes |
 | `set_robust_list` | [🐧](https://man7.org/linux/man-pages/man2/set_robust_list.2.html) | set list of robust futexes |
 
@@ -454,7 +453,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 | `process_vm_readv` | [🐧](https://man7.org/linux/man-pages/man2/process_vm_readv.2.html) | transfer data between process address spaces |
 | `process_vm_writev` | [🐧](https://man7.org/linux/man-pages/man2/process_vm_writev.2.html) | transfer data between process address spaces |
 | `prctl` | [🐧](https://man7.org/linux/man-pages/man2/prctl.2.html) | various operations on a process or a thread |
-| `kcmp` | [🐧](https://man7.org/linux/man-pages/man2/kcmp.2.html) | compare two processes to determine if they share a kernel resource |
+| `kcmp` | [🐧](https://man7.org/linux/man-pages/man2/kcmp.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=kcmp&sektion=2) | compare two processes to determine if they share a kernel resource |
 
 ### File descriptors and handles
 
@@ -484,7 +483,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 | `eventfd2` | [🐧](https://man7.org/linux/man-pages/man2/eventfd2.2.html) | create a file descriptor for event notification |
 | `memfd_create` | [🐧](https://man7.org/linux/man-pages/man2/memfd_create.2.html) | create an anonymous file |
 | `memfd_secret` | [🐧](https://man7.org/linux/man-pages/man2/memfd_secret.2.html) | create an anonymous RAM-based file to access secret memory regions |
-| `timerfd_create` | [🐧](https://man7.org/linux/man-pages/man2/timerfd_create.2.html) | create a timer that notifies via file descriptor |
+| `timerfd_create` | [🐧](https://man7.org/linux/man-pages/man2/timerfd_create.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=timerfd_create&sektion=2) | create a timer that notifies via file descriptor |
 | `userfaultfd` | [🐧](https://man7.org/linux/man-pages/man2/userfaultfd.2.html) | create a file descriptor for handling page faults in user space |
 | `signalfd4` | [🐧](https://man7.org/linux/man-pages/man2/signalfd4.2.html) | create a file descriptor for accepting signals |
 | `pidfd_open` | [🐧](https://man7.org/linux/man-pages/man2/pidfd_open.2.html) | obtain a file descriptor that refers to a process |
