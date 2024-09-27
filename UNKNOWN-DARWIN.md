@@ -2,7 +2,7 @@
 
 # Uncategorized Darwin System Calls
 
-We don't know anything about 265 Darwin (🍏) system calls. Help us categorize these bad boys:
+We don't know anything about 267 Darwin (🍏) system calls. Help us categorize these bad boys:
 
 * crossarch_trap
 * getlogin
@@ -268,4 +268,6 @@ We don't know anything about 265 Darwin (🍏) system calls. Help us categorize 
 * freadlink
 * record_system_event
 * ungraftdmg
+* coalition_policy_set
+* coalition_policy_get
 * invalid
