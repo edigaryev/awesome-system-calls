@@ -25,5 +25,6 @@ jobs:
         with:
           commit-message: "Periodic update"
           title: "Periodic update"
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           body: |
             Produced by [`.github/workflows/update.yml`](https://github.com/edigaryev/awesome-system-calls/blob/main/.github/workflows/update.yml).
