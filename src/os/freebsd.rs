@@ -8,7 +8,7 @@ pub struct FreeBSD {
 
 impl FreeBSD {
     pub fn new() -> Result<Self> {
-        let syscall_header = fetch_url("https://cgit.freebsd.org/src/plain/sys/sys/syscall.h")?;
+        let syscall_header = fetch_url("https://raw.githubusercontent.com/freebsd/freebsd-src/refs/heads/main/sys/sys/syscall.h")?;
 
         Ok(FreeBSD {
             syscalls: Self::extract_syscalls(syscall_header)?,
