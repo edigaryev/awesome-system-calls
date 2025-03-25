@@ -2,7 +2,7 @@
 
 # Uncategorized Linux System Calls
 
-We don't know anything about 60 Linux (🐧) system calls. Help us categorize these bad boys:
+We don't know anything about 61 Linux (🐧) system calls. Help us categorize these bad boys:
 
 * lookup_dcookie
 * getdents64
@@ -54,6 +54,7 @@ We don't know anything about 60 Linux (🐧) system calls. Help us categorize th
 * getxattrat
 * listxattrat
 * removexattrat
+* open_tree_attr
 * fcntl64
 * statfs64
 * fstatfs64
