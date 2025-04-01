@@ -2,10 +2,12 @@
 
 # Uncategorized Darwin System Calls
 
-We don't know anything about 267 Darwin (🍏) system calls. Help us categorize these bad boys:
+We don't know anything about 269 Darwin (🍏) system calls. Help us categorize these bad boys:
 
 * crossarch_trap
 * getlogin
+* oslog_coproc_reg
+* oslog_coproc
 * getdtablesize
 * gethostuuid
 * setprivexec
