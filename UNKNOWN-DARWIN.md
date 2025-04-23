@@ -2,7 +2,7 @@
 
 # Uncategorized Darwin System Calls
 
-We don't know anything about 269 Darwin (🍏) system calls. Help us categorize these bad boys:
+We don't know anything about 267 Darwin (🍏) system calls. Help us categorize these bad boys:
 
 * crossarch_trap
 * getlogin
@@ -203,8 +203,6 @@ We don't know anything about 269 Darwin (🍏) system calls. Help us categorize 
 * proc_trace_log
 * bsdthread_ctl
 * openbyid_np
-* recvmsg_x
-* sendmsg_x
 * thread_selfusage
 * csrctl
 * guarded_open_dprotected_np

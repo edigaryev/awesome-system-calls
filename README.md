@@ -732,10 +732,12 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 |------|----|-------------|
 | `recvfrom` | [🐡](https://man.openbsd.org/recvfrom.2), [🐧](https://man7.org/linux/man-pages/man2/recvfrom.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=recvfrom&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/recvfrom.2.html) | receive a message from a socket |
 | `recvmsg` | [🐡](https://man.openbsd.org/recvmsg.2), [🐧](https://man7.org/linux/man-pages/man2/recvmsg.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=recvmsg&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/recvmsg.2.html) | receive a message from a socket |
-| `recvmmsg` | [🐡](https://man.openbsd.org/recvmmsg.2), [🐧](https://man7.org/linux/man-pages/man2/recvmmsg.2.html) | receive a message from a socket |
+| `recvmmsg` | [🐡](https://man.openbsd.org/recvmmsg.2), [🐧](https://man7.org/linux/man-pages/man2/recvmmsg.2.html) | receive multiple messages from a socket |
+| `recvmsg_x` | [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/recvmsg_x.2.html) | receive multiple datagrams from a socket |
 | `sendto` | [🐡](https://man.openbsd.org/sendto.2), [🐧](https://man7.org/linux/man-pages/man2/sendto.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=sendto&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/sendto.2.html) | send a message on a socket |
 | `sendmsg` | [🐡](https://man.openbsd.org/sendmsg.2), [🐧](https://man7.org/linux/man-pages/man2/sendmsg.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=sendmsg&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/sendmsg.2.html) | send a message on a socket |
-| `sendmmsg` | [🐡](https://man.openbsd.org/sendmmsg.2), [🐧](https://man7.org/linux/man-pages/man2/sendmmsg.2.html) | send a message on a socket |
+| `sendmmsg` | [🐡](https://man.openbsd.org/sendmmsg.2), [🐧](https://man7.org/linux/man-pages/man2/sendmmsg.2.html) | send multiple messages on a socket |
+| `sendmsg_x` | [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/sendmsg_x.2.html) | send multiple datagrams on a socket |
 | `shutdown` | [🐡](https://man.openbsd.org/shutdown.2), [🐧](https://man7.org/linux/man-pages/man2/shutdown.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=shutdown&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/shutdown.2.html) | disable sends or receives on a socket |
 
 #### NFS

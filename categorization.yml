@@ -708,13 +708,17 @@ network:
             - name: recvmsg
               desc: receive a message from a socket
             - name: recvmmsg
-              desc: receive a message from a socket
+              desc: receive multiple messages from a socket
+            - name: recvmsg_x
+              desc: receive multiple datagrams from a socket
             - name: sendto
               desc: send a message on a socket
             - name: sendmsg
               desc: send a message on a socket
             - name: sendmmsg
-              desc: send a message on a socket
+              desc: send multiple messages on a socket
+            - name: sendmsg_x
+              desc: send multiple datagrams on a socket
             - name: shutdown
               desc: disable sends or receives on a socket
     nfs:
