@@ -16,7 +16,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
 * Linux (🐧) — 360
 
-* FreeBSD (😈) — 404
+* FreeBSD (😈) — 406
 
 * Darwin (🍏) — 457
 
@@ -685,7 +685,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 |------|----|-------------|
 | `inotify_init1` | [🐧](https://man7.org/linux/man-pages/man2/inotify_init1.2.html) | initialize an [`inotify(7)`](https://man7.org/linux/man-pages/man7/inotify.7.html) instance |
 | `inotify_add_watch` | [🐧](https://man7.org/linux/man-pages/man2/inotify_add_watch.2.html) | add a watch to an initialized `inotify(7)` instance |
-| `inotify_rm_watch` | [🐧](https://man7.org/linux/man-pages/man2/inotify_rm_watch.2.html) | remove an existing watch from an `inotify(7)` instance |
+| `inotify_rm_watch` | [🐧](https://man7.org/linux/man-pages/man2/inotify_rm_watch.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=inotify_rm_watch&sektion=2) | remove an existing watch from an `inotify(7)` instance |
 | `fanotify_init` | [🐧](https://man7.org/linux/man-pages/man2/fanotify_init.2.html) | create and initialize [`fanotify(7)`](https://man7.org/linux/man-pages/man7/fanotify.7.html) group |
 | `fanotify_mark` | [🐧](https://man7.org/linux/man-pages/man2/fanotify_mark.2.html) | add, remove, or modify an `fanotify(7)` mark on a filesystem object |
 

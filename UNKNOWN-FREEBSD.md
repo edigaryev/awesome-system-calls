@@ -2,7 +2,7 @@
 
 # Uncategorized FreeBSD System Calls
 
-We don't know anything about 181 FreeBSD (😈) system calls. Help us categorize these bad boys:
+We don't know anything about 182 FreeBSD (😈) system calls. Help us categorize these bad boys:
 
 * break
 * getlogin
@@ -185,3 +185,4 @@ We don't know anything about 181 FreeBSD (😈) system calls. Help us categorize
 * fchroot
 * setcred
 * exterrctl
+* inotify_add_watch_at
