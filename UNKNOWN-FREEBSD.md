@@ -2,8 +2,9 @@
 
 # Uncategorized FreeBSD System Calls
 
-We don't know anything about 182 FreeBSD (😈) system calls. Help us categorize these bad boys:
+We don't know anything about 183 FreeBSD (😈) system calls. Help us categorize these bad boys:
 
+* _exit
 * break
 * getlogin
 * getdtablesize
