@@ -2,7 +2,7 @@
 
 # Uncategorized FreeBSD System Calls
 
-We don't know anything about 183 FreeBSD (😈) system calls. Help us categorize these bad boys:
+We don't know anything about 185 FreeBSD (😈) system calls. Help us categorize these bad boys:
 
 * _exit
 * break
@@ -187,3 +187,5 @@ We don't know anything about 183 FreeBSD (😈) system calls. Help us categorize
 * setcred
 * exterrctl
 * inotify_add_watch_at
+* jail_attach_jd
+* jail_remove_jd
