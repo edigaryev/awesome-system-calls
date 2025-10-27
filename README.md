@@ -16,7 +16,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
 * Linux (🐧) — 362
 
-* FreeBSD (😈) — 409
+* FreeBSD (😈) — 410
 
 * Darwin (🍏) — 458
 
@@ -925,7 +925,7 @@ See [Kernel Key Retention Service](https://www.kernel.org/doc/html/v5.0/security
 
 | Name | OS | Description |
 |------|----|-------------|
-| `kexec_load` | [🐧](https://man7.org/linux/man-pages/man2/kexec_load.2.html) | load a new kernel for later execution |
+| `kexec_load` | [🐧](https://man7.org/linux/man-pages/man2/kexec_load.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=kexec_load&sektion=2) | load a new kernel for later execution |
 | `kexec_file_load` | [🐧](https://man7.org/linux/man-pages/man2/kexec_file_load.2.html) | load a new kernel for later execution (referenced by a file descriptor) |
 
 ##### Dynamic kernel linker facility (FreeBSD)
