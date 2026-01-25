@@ -16,6 +16,7 @@ impl FreeBSD {
     }
 
     fn extract_syscalls(syscall_header: String) -> Result<Vec<String>> {
+        let compat_re = Regex::new("^freebsd[0-9]+_.*$")?;
         let mut result: Vec<String> = Vec::new();
 
         for cmacro in cmacros::extract_macros(syscall_header.as_str())? {
@@ -32,7 +33,6 @@ impl FreeBSD {
             }
 
             // Exclude forward/backward compatibility system calls (e.g. freebsd11_mknod)
-            let compat_re = Regex::new("^freebsd[0-9]+_.*$")?;
             if compat_re.is_match(name) {
                 continue;
             }
