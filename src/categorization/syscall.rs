@@ -7,6 +7,7 @@ use std::collections::HashMap;
 pub struct Syscall {
     pub name: String,
     pub desc: Option<String>,
+    pub aliases: Option<Vec<String>>,
 }
 
 impl Syscall {

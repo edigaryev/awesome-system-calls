@@ -2,7 +2,7 @@
 
 # Uncategorized Darwin System Calls
 
-We don't know anything about 268 Darwin (🍏) system calls. Help us categorize these bad boys:
+We don't know anything about 257 Darwin (🍏) system calls. Help us categorize these bad boys:
 
 * crossarch_trap
 * getlogin
@@ -93,16 +93,7 @@ We don't know anything about 268 Darwin (🍏) system calls. Help us categorize 
 * __pthread_canceled
 * __semwait_signal
 * proc_info
-* stat64
-* fstat64
-* lstat64
-* stat64_extended
-* lstat64_extended
-* fstat64_extended
 * getdirentries64
-* statfs64
-* fstatfs64
-* getfsstat64
 * __pthread_chdir
 * __pthread_fchdir
 * audit
@@ -117,7 +108,6 @@ We don't know anything about 268 Darwin (🍏) system calls. Help us categorize 
 * bsdthread_register
 * workq_open
 * workq_kernreturn
-* kevent64
 * thread_selfid
 * ledger
 * kevent_qos
@@ -199,7 +189,6 @@ We don't know anything about 268 Darwin (🍏) system calls. Help us categorize 
 * necp_match_policy
 * getattrlistbulk
 * openat_nocancel
-* fstatat64
 * getattrlistat
 * proc_trace_log
 * bsdthread_ctl
