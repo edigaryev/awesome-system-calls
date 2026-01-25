@@ -18,8 +18,12 @@ processes-and-threads:
           desc: execute a program (relative to a directory file descriptor)
         - name: wait4
           desc: wait for process to change state
+          aliases:
+            - wait4_nocancel
         - name: waitid
           desc: wait for process to change state
+          aliases:
+            - waitid_nocancel
         - name: exit
           desc: terminate the calling process
     lifecycle-thread-specific:
@@ -147,6 +151,8 @@ processes-and-threads:
           desc: return from the signal handler
         - name: sigsuspend
           desc: wait for signal
+          aliases:
+            - sigsuspend_nocancel
         - name: rt_sigsuspend
           desc: wait for signal
         - name: rt_sigtimedwait
@@ -218,6 +224,8 @@ processes-and-threads:
               desc: provide mapping hints to applications
             - name: msync
               desc: synchronize a mapped region
+              aliases:
+                - msync_nocancel
     timers:
       syscalls:
         - name: getitimer
@@ -379,8 +387,12 @@ file-descriptors-and-handles:
       syscalls:
         - name: open
           desc: open or create a file
+          aliases:
+            - open_nocancel
         - name: openat
           desc: open or create a file (relative to a directory file descriptor)
+          aliases:
+            - openat_nocancel
         - name: openat2
           desc: open or create a file (relative to a directory file descriptor)
         - name: getfh
@@ -429,6 +441,7 @@ file-descriptors-and-handles:
           desc: file control
           aliases:
             - fcntl64
+            - fcntl_nocancel
         - name: ioctl
           desc: device control
         - name: lseek
@@ -452,28 +465,42 @@ file-descriptors-and-handles:
           syscalls:
             - name: read
               desc: read from a file descriptor
+              aliases:
+                - read_nocancel
             - name: readv
               desc: read from a file descriptor
+              aliases:
+                - readv_nocancel
             - name: pread
               desc: read from a file descriptor at the specified offset
               aliases:
                 - pread64
+                - pread_nocancel
             - name: preadv
               desc: read from a file descriptor at the specified offset
+              aliases:
+                - preadv_nocancel
             - name: preadv2
               desc: read from a file descriptor at the specified offset
         write:
           syscalls:
             - name: write
               desc: write to a file descriptor
+              aliases:
+                - write_nocancel
             - name: writev
               desc: write to a file descriptor
+              aliases:
+                - writev_nocancel
             - name: pwrite
               desc: write to a file descriptor at the specified offset
               aliases:
                 - pwrite64
+                - pwrite_nocancel
             - name: pwritev
               desc: write to a file descriptor at the specified offset
+              aliases:
+                - pwritev_nocancel
             - name: pwritev2
               desc: write to a file descriptor at the specified offset
         zero-copy:
@@ -495,6 +522,8 @@ file-descriptors-and-handles:
       syscalls:
         - name: close
           desc: close a file descriptor
+          aliases:
+            - close_nocancel
         - name: closefrom
           desc: close all file descriptors starting from the specified file descriptor
         - name: close_range
@@ -664,6 +693,8 @@ file-system:
           desc: synchronize disk in-core state with storage device
         - name: fsync
           desc: synchronize file in-core state with storage device
+          aliases:
+            - fsync_nocancel
         - name: fdatasync
           desc: synchronize file in-core state with storage device
         - name: sync_file_range
@@ -731,12 +762,16 @@ network:
           syscalls:
             - name: connect
               desc: initiate a connection on a socket
+              aliases:
+                - connect_nocancel
             - name: bind
               desc: bind a name to a socket
             - name: listen
               desc: listen for connections on a socket
             - name: accept
               desc: accept a connection on a socket
+              aliases:
+                - accept_nocancel
             - name: accept4
               desc: accept a connection on a socket
         socket-metadata:
@@ -754,8 +789,12 @@ network:
           syscalls:
             - name: recvfrom
               desc: receive a message from a socket
+              aliases:
+                - recvfrom_nocancel
             - name: recvmsg
               desc: receive a message from a socket
+              aliases:
+                - recvmsg_nocancel
             - name: recvmmsg
               desc: receive multiple messages from a socket
               aliases:
@@ -764,8 +803,12 @@ network:
               desc: receive multiple datagrams from a socket
             - name: sendto
               desc: send a message on a socket
+              aliases:
+                - sendto_nocancel
             - name: sendmsg
               desc: send a message on a socket
+              aliases:
+                - sendmsg_nocancel
             - name: sendmmsg
               desc: send multiple messages on a socket
             - name: sendmsg_x
@@ -786,14 +829,20 @@ polling-multiplexing-and-async-io:
       syscalls:
         - name: select
           desc: synchronous I/O multiplexing
+          aliases:
+            - select_nocancel
         - name: pselect
           desc: synchronous I/O multiplexing
+          aliases:
+            - pselect_nocancel
         - name: pselect6
           desc: synchronous I/O multiplexing
           aliases:
             - pselect6_time64
         - name: poll
           desc: synchronous I/O multiplexing
+          aliases:
+            - poll_nocancel
         - name: ppoll
           desc: synchronous I/O multiplexing
           aliases:
@@ -831,6 +880,8 @@ polling-multiplexing-and-async-io:
           desc: retrieve error status of asynchronous I/O operation
         - name: aio_suspend
           desc: suspend until asynchronous I/O operations complete or time out
+          aliases:
+            - aio_suspend_nocancel
         - name: aio_waitcomplete
           desc: wait for the next completion of an asynchronous I/O operation
         - name: aio_cancel
@@ -957,8 +1008,12 @@ interprocess-communication:
           desc: retrieve message queue
         - name: msgrcv
           desc: receive a message from a message queue
+          aliases:
+            - msgrcv_nocancel
         - name: msgsnd
           desc: send a message to a message queue
+          aliases:
+            - msgsnd_nocancel
         - name: msgctl
           desc: control operations on a message queue
         - name: mq_open

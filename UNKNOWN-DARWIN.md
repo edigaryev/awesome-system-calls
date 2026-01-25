@@ -2,7 +2,7 @@
 
 # Uncategorized Darwin System Calls
 
-We don't know anything about 257 Darwin (🍏) system calls. Help us categorize these bad boys:
+We don't know anything about 228 Darwin (🍏) system calls. Help us categorize these bad boys:
 
 * crossarch_trap
 * getlogin
@@ -123,33 +123,7 @@ We don't know anything about 257 Darwin (🍏) system calls. Help us categorize 
 * __mac_get_fd
 * __mac_set_fd
 * __mac_get_pid
-* pselect_nocancel
-* read_nocancel
-* write_nocancel
-* open_nocancel
-* close_nocancel
-* wait4_nocancel
-* recvmsg_nocancel
-* sendmsg_nocancel
-* recvfrom_nocancel
-* accept_nocancel
-* msync_nocancel
-* fcntl_nocancel
-* select_nocancel
-* fsync_nocancel
-* connect_nocancel
-* sigsuspend_nocancel
-* readv_nocancel
-* writev_nocancel
-* sendto_nocancel
-* pread_nocancel
-* pwrite_nocancel
-* waitid_nocancel
-* poll_nocancel
-* msgsnd_nocancel
-* msgrcv_nocancel
 * sem_wait_nocancel
-* aio_suspend_nocancel
 * __sigwait_nocancel
 * __semwait_signal_nocancel
 * __mac_mount
@@ -188,7 +162,6 @@ We don't know anything about 257 Darwin (🍏) system calls. Help us categorize 
 * coalition_info
 * necp_match_policy
 * getattrlistbulk
-* openat_nocancel
 * getattrlistat
 * proc_trace_log
 * bsdthread_ctl
@@ -246,8 +219,6 @@ We don't know anything about 257 Darwin (🍏) system calls. Help us categorize 
 * shared_region_map_and_slide_2_np
 * task_inspect_for_pid
 * task_read_for_pid
-* preadv_nocancel
-* pwritev_nocancel
 * ulock_wait2
 * proc_info_extended_id
 * tracker_action
