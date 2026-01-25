@@ -74,7 +74,7 @@ impl Category {
                 result.push(syscall.name.clone());
 
                 if let Some(aliases) = &syscall.aliases {
-                    result.extend(aliases.clone());
+                    result.extend(aliases.iter().cloned());
                 }
             }
         }
