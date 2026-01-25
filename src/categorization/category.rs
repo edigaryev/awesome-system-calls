@@ -70,7 +70,15 @@ impl Category {
         let mut result: Vec<String> = Vec::new();
 
         if let Some(syscalls) = &self.syscalls {
-            result.extend(syscalls.iter().map(|x| x.name.clone()));
+            result.extend(syscalls.iter().flat_map(|x| {
+                let mut result = vec![x.name.clone()];
+
+                if let Some(aliases) = &x.aliases {
+                    result.extend(aliases.clone());
+                }
+
+                result
+            }));
         }
 
         if let Some(categories) = &self.categories {

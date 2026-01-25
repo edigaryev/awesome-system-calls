@@ -151,6 +151,8 @@ processes-and-threads:
           desc: wait for signal
         - name: rt_sigtimedwait
           desc: synchronously wait for queued signals
+          aliases:
+            - rt_sigtimedwait_time64
         - name: rt_sigqueueinfo
           desc: queue a signal and data
         - name: rt_tgsigqueueinfo
@@ -226,16 +228,24 @@ processes-and-threads:
           desc: create a POSIX per-process timer
         - name: timer_gettime
           desc: fetch state of POSIX per-process timer
+          aliases:
+            - timer_gettime64
         - name: timer_settime
           desc: arm/disarm the POSIX per-process timer
+          aliases:
+            - timer_settime64
         - name: timer_getoverrun
           desc: get overrun count for a POSIX per-process timer
         - name: timer_delete
           desc: delete a POSIX per-process timer
         - name: timerfd_gettime
           desc: fetch state of a timer that notifies via file descriptor
+          aliases:
+            - timerfd_gettime64
         - name: timerfd_settime
           desc: arm/disarm a timer that notifies via file descriptor
+          aliases:
+            - timerfd_settime64
     metadata:
       syscalls:
         - name: getpid
@@ -295,6 +305,8 @@ processes-and-threads:
           desc: get static priority range
         - name: sched_rr_get_interval
           desc: get the SCHED_RR interval (referenced by a process ID)
+          aliases:
+            - sched_rr_get_interval_time64
         - name: sched_getaffinity
           desc: get thread's CPU affinity mask
         - name: sched_setaffinity
@@ -331,10 +343,14 @@ processes-and-threads:
           desc: high-resolution sleep
         - name: clock_nanosleep
           desc: high-resolution sleep with specifiable clock
+          aliases:
+            - clock_nanosleep_time64
     locking-and-synchronization:
       syscalls:
         - name: futex
           desc: fast userspace locking primitive
+          aliases:
+            - futex_time64
         - name: futex_waitv
           desc: wait on array of futexes
         - name: membarrier
@@ -411,6 +427,8 @@ file-descriptors-and-handles:
       syscalls:
         - name: fcntl
           desc: file control
+          aliases:
+            - fcntl64
         - name: ioctl
           desc: device control
         - name: lseek
@@ -438,6 +456,8 @@ file-descriptors-and-handles:
               desc: read from a file descriptor
             - name: pread
               desc: read from a file descriptor at the specified offset
+              aliases:
+                - pread64
             - name: preadv
               desc: read from a file descriptor at the specified offset
             - name: preadv2
@@ -450,6 +470,8 @@ file-descriptors-and-handles:
               desc: write to a file descriptor
             - name: pwrite
               desc: write to a file descriptor at the specified offset
+              aliases:
+                - pwrite64
             - name: pwritev
               desc: write to a file descriptor at the specified offset
             - name: pwritev2
@@ -461,6 +483,8 @@ file-descriptors-and-handles:
               desc: copy a range of bytes between two file descriptors that refer to files
             - name: sendfile
               desc: move data from source (must support `mmap`-like operations) to a destination file descriptor
+              aliases:
+                - sendfile64
             - name: tee
               desc: duplicate pipe content
             - name: splice
@@ -515,8 +539,12 @@ file-system:
           desc: create a copy-on-write clone of files (referenced by a file descriptor)
         - name: truncate
           desc: truncate or extend a file to a specified length
+          aliases:
+            - truncate64
         - name: ftruncate
           desc: truncate or extend a file to a specified length (referenced by a file descriptor)
+          aliases:
+            - ftruncate64
         - name: fallocate
           desc: manipulate file space
     change-object-permissions:
@@ -557,20 +585,35 @@ file-system:
           desc: read value of a symbolic link (relative to a directory file descriptor)
         - name: stat
           desc: get file status
+          aliases:
+            - stat64
+            - stat64_extended
         - name: lstat
           desc: get file status
+          aliases:
+            - lstat64
+            - lstat64_extended
         - name: fstat
           desc: get file status (referenced by a file handle)
+          aliases:
+            - fstat64
+            - fstat64_extended
         - name: fstatat
           desc: get file status (relative to a directory file descriptor)
+          aliases:
+            - fstatat64
         - name: statx
           desc: get file status (relative to a directory file descriptor)
         - name: fhstat
           desc: get file status (referenced by a file handle)
         - name: statfs
           desc: get file system statistics
+          aliases:
+            - statfs64
         - name: fstatfs
           desc: get file system statistics (referenced by a file descriptor)
+          aliases:
+            - fstatfs64
         - name: fhstatfs
           desc: get file system statistics (referenced by a file handle)
         - name: newfstatat
@@ -581,12 +624,16 @@ file-system:
           desc: set file access and modification times
         - name: utimensat
           desc: set file access and modification times (relative to a directory file descriptor)
+          aliases:
+            - utimensat_time64
         - name: futimes
           desc: set file access and modification times
         - name: futimens
           desc: set file access and modification times
         - name: getdents
           desc: get directory entries in a filesystem independent format
+          aliases:
+            - getdents64
     remove-object:
       syscalls:
         - name: unlink
@@ -605,6 +652,8 @@ file-system:
           desc: mount a filesystem
         - name: getfsstat
           desc: get list of all mounted file systems
+          aliases:
+            - getfsstat64
         - name: unmount
           desc: dismount a filesystem
         - name: umount2
@@ -709,6 +758,8 @@ network:
               desc: receive a message from a socket
             - name: recvmmsg
               desc: receive multiple messages from a socket
+              aliases:
+                - recvmmsg_time64
             - name: recvmsg_x
               desc: receive multiple datagrams from a socket
             - name: sendto
@@ -739,16 +790,22 @@ polling-multiplexing-and-async-io:
           desc: synchronous I/O multiplexing
         - name: pselect6
           desc: synchronous I/O multiplexing
+          aliases:
+            - pselect6_time64
         - name: poll
           desc: synchronous I/O multiplexing
         - name: ppoll
           desc: synchronous I/O multiplexing
+          aliases:
+            - ppoll_time64
         - name: kqueue
           desc: create a new kernel event queue
         - name: kqueue1
           desc: create a new kernel event queue
         - name: kevent
           desc: register events with the kernel event queue
+          aliases:
+            - kevent64
         - name: epoll_create1
           desc: open an [`epoll(7)`](https://man7.org/linux/man-pages/man7/epoll.7.html) file descriptor
         - name: epoll_ctl
@@ -789,6 +846,8 @@ polling-multiplexing-and-async-io:
           desc: read asynchronous I/O events from the completion queue
         - name: io_pgetevents
           desc: read asynchronous I/O events from the completion queue
+          aliases:
+            - io_pgetevents_time64
         - name: io_cancel
           desc: cancel an outstanding asynchronous I/O operation
         - name: io_destroy
@@ -885,6 +944,8 @@ interprocess-communication:
           desc: atomic operations on a set of semaphores
         - name: semtimedop
           desc: atomic operations on a set of semaphores (with timeout)
+          aliases:
+            - semtimedop_time64
         - name: semctl
           desc: control operations on a set of semaphores
         - name: __semctl
@@ -904,8 +965,12 @@ interprocess-communication:
           desc: open a message queue
         - name: mq_timedreceive
           desc: receive a message from a message queue
+          aliases:
+            - mq_timedreceive_time64
         - name: mq_timedsend
           desc: send a message to a message queue
+          aliases:
+            - mq_timedsend_time64
         - name: mq_notify
           desc: register for notification when a message is available
         - name: mq_getsetattr
@@ -1000,12 +1065,20 @@ system:
           desc: set the time of day
         - name: clock_gettime
           desc: get the time of a given clock
+          aliases:
+            - clock_gettime64
         - name: clock_settime
           desc: set the time for a given clock
+          aliases:
+            - clock_settime64
         - name: clock_getres
           desc: get the resolution of a given clock
+          aliases:
+            - clock_getres_time64
         - name: clock_adjtime
           desc: tune a given clock
+          aliases:
+            - clock_adjtime64
         - name: adjtime
           desc: tune the system clock
         - name: adjtimex
