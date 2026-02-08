@@ -8,7 +8,7 @@ pub struct OpenBSD {
 impl OpenBSD {
     pub fn new() -> Result<Self> {
         let syscall_header = fetch_url(
-            "https://cvsweb.openbsd.org/cgi-bin/cvsweb/~checkout~/src/sys/sys/syscall.h",
+            "https://raw.githubusercontent.com/openbsd/src/refs/heads/master/sys/sys/syscall.h",
         )?;
 
         Ok(OpenBSD {
