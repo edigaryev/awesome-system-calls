@@ -2,7 +2,7 @@
 
 # Uncategorized Linux System Calls
 
-We don't know anything about 31 Linux (🐧) system calls. Help us categorize these bad boys:
+We don't know anything about 32 Linux (🐧) system calls. Help us categorize these bad boys:
 
 * lookup_dcookie
 * rseq
@@ -35,3 +35,4 @@ We don't know anything about 31 Linux (🐧) system calls. Help us categorize th
 * file_getattr
 * file_setattr
 * listns
+* rseq_slice_yield
