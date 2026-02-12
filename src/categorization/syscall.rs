@@ -11,7 +11,7 @@ pub struct Syscall {
 }
 
 impl Syscall {
-    pub(crate) fn transform(&self, oses: &[Box<dyn OS>]) -> Option<HashMap<&'static str, Value>> {
+    pub(crate) fn transform(&self, oses: &[Box<dyn OS>]) -> Option<HashMap<&str, Value>> {
         let per_os_infos: Vec<HashMap<&str, String>> = oses
             .iter()
             .filter(|os| os.syscalls().contains(&self.name))
@@ -31,7 +31,7 @@ impl Syscall {
 
         let mut result = HashMap::from([
             ("name", Value::from(self.name.to_string())),
-            ("per_os_infos", Value::from_serializable(&per_os_infos)),
+            ("per_os_infos", Value::from_serialize(&per_os_infos)),
         ]);
 
         if let Some(desc) = &self.desc {
