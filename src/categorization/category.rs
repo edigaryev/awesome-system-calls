@@ -37,11 +37,11 @@ impl Category {
         let final_name = self.name.clone().unwrap_or(name.to_sentence_case());
 
         let mut transformed = HashMap::from([
-            ("name", Value::from_serializable(&final_name)),
-            ("desc", Value::from_serializable(&self.desc)),
+            ("name", Value::from_serialize(&final_name)),
+            ("desc", Value::from_serialize(&self.desc)),
             (
                 "slug",
-                Value::from_serializable(&github_slugger::slug(&final_name)),
+                Value::from_serialize(github_slugger::slug(&final_name)),
             ),
         ]);
 
@@ -51,7 +51,7 @@ impl Category {
                 .flat_map(|syscall| syscall.transform(oses))
                 .collect();
 
-            transformed.insert("syscalls", Value::from_serializable(&modified_syscalls));
+            transformed.insert("syscalls", Value::from_serialize(&modified_syscalls));
         }
 
         if let Some(categories) = &self.categories {
@@ -60,7 +60,7 @@ impl Category {
                 .map(|(name, category)| category.transform(name, oses))
                 .collect();
 
-            transformed.insert("categories", Value::from_serializable(&modified_categories));
+            transformed.insert("categories", Value::from_serialize(&modified_categories));
         }
 
         transformed

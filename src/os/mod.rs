@@ -20,6 +20,7 @@ pub trait OS {
 fn fetch_url(url: &str) -> crate::Result<String> {
     ureq::get(url)
         .call()?
-        .into_string()
+        .into_body()
+        .read_to_string()
         .map_err(|err| err.into())
 }
