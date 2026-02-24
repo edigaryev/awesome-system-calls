@@ -14,7 +14,12 @@ impl Syscall {
     pub(crate) fn transform(&self, oses: &[Box<dyn OS>]) -> Option<HashMap<&str, Value>> {
         let per_os_infos: Vec<HashMap<&str, String>> = oses
             .iter()
-            .filter(|os| os.syscalls().contains(&self.name))
+            .filter(|os| {
+                let os_syscalls = os.syscalls();
+                std::iter::once(&self.name)
+                    .chain(self.aliases.iter().flatten())
+                    .any(|syscall| os_syscalls.contains(syscall))
+            })
             .map(|os| {
                 HashMap::from([
                     ("os_emoji", os.emoji()),
