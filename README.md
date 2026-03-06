@@ -16,7 +16,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
 * Linux (🐧) — 364
 
-* FreeBSD (😈) — 412
+* FreeBSD (😈) — 413
 
 * Darwin (🍏) — 458
 
@@ -578,7 +578,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 |------|----|-------------|
 | `rename` | [🐡](https://man.openbsd.org/rename.2), [😈](https://www.freebsd.org/cgi/man.cgi?query=rename&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/rename.2.html) | change the name or location of a file |
 | `renameat` | [🐡](https://man.openbsd.org/renameat.2), [🐧](https://man7.org/linux/man-pages/man2/renameat.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=renameat&sektion=2), [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/renameat.2.html) | change the name or location of a file (relative to a directory file descriptor) |
-| `renameat2` | [🐧](https://man7.org/linux/man-pages/man2/renameat2.2.html) | change the name or location of a file (relative to a directory file descriptor) |
+| `renameat2` | [🐧](https://man7.org/linux/man-pages/man2/renameat2.2.html), [😈](https://www.freebsd.org/cgi/man.cgi?query=renameat2&sektion=2) | change the name or location of a file (relative to a directory file descriptor) |
 | `renameatx_np` | [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/renameatx_np.2.html) | change the name or location of a file (relative to a directory file descriptor) |
 | `clonefileat` | [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/clonefileat.2.html) | create a copy-on-write clone of files |
 | `fclonefileat` | [🍏](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/fclonefileat.2.html) | create a copy-on-write clone of files (referenced by a file descriptor) |
