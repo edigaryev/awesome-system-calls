@@ -12,7 +12,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
 ## System call statistics
 
-* OpenBSD (🐡) — 221
+* OpenBSD (🐡) — 220
 
 * Linux (🐧) — 364
 
