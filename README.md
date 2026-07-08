@@ -16,7 +16,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
 * Linux (🐧) — 364
 
-* FreeBSD (😈) — 413
+* FreeBSD (😈) — 415
 
 * Darwin (🍏) — 458
 
