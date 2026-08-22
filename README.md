@@ -14,7 +14,7 @@ The *awesome* word is used deliberately as an alias for "collection of", to help
 
 * OpenBSD (🐡) — 220
 
-* Linux (🐧) — 364
+* Linux (🐧) — 365
 
 * FreeBSD (😈) — 415
 
