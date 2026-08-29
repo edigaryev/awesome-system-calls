@@ -2,7 +2,7 @@
 
 # Uncategorized FreeBSD System Calls
 
-We don't know anything about 189 FreeBSD (😈) system calls. Help us categorize these bad boys:
+We don't know anything about 190 FreeBSD (😈) system calls. Help us categorize these bad boys:
 
 * _exit
 * break
@@ -193,3 +193,4 @@ We don't know anything about 189 FreeBSD (😈) system calls. Help us categorize
 * pdwait
 * pdopenpid
 * pddupfd
+* pdptrace
