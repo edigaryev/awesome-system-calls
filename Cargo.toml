@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 ureq = "3"
 cmacros = "0"
-minijinja = "2"
+minijinja = "3"
 serde = { version = "1", features = ["derive"] }
 serde_yaml = "0"
 indexmap = { version = "2", features = ["serde"] }
