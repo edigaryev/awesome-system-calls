@@ -44,7 +44,7 @@ impl Categorization {
             .iter()
             .map(|(name, category)| category.transform(name, oses))
             .collect();
-        env.add_global("categories", Value::from_serialize(&categories));
+        env.add_global("categories", Value::from(&categories));
 
         let template = fs::read_to_string(template_path)?;
         let rendered = minijinja::render!(in env, &template);
@@ -69,7 +69,7 @@ impl Categorization {
             .collect();
         let unknown_syscalls: IndexSet<String> =
             IndexSet::from_iter(os.syscalls()).sub(&known_syscalls);
-        env.add_global("syscalls", Value::from_serialize(&unknown_syscalls));
+        env.add_global("syscalls", Value::from_iter(&unknown_syscalls));
 
         let template = fs::read_to_string(template_path)?;
         let rendered = minijinja::render!(in env, &template);

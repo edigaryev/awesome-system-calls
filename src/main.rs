@@ -6,6 +6,7 @@ use os::OS;
 use std::error::Error;
 
 use clap::{Parser, Subcommand};
+use minijinja::syntax::SyntaxConfig;
 
 type Result<T> = std::result::Result<T, Box<dyn Error>>;
 
@@ -42,7 +43,11 @@ fn generate() -> Result<()> {
         "<!-- This file was auto-generated, please edit it's *.j2 template instead -->",
     );
     env.add_filter("repeat", |value: String, num: usize| value.repeat(num));
-    env.set_keep_trailing_newline(true);
+    env.set_syntax(
+        SyntaxConfig::builder()
+            .keep_trailing_newline(true)
+            .build()?,
+    );
 
     // Load operating systems
     let mut oses: Vec<Box<dyn OS>> = vec![
